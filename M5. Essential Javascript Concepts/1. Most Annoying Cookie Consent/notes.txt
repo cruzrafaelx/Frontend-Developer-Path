@@ -1,0 +1,164 @@
+Along the way:
+
+1. setTimeout - used to delay code execution
+
+setTimeout(function(){}, delay (time in ms))
+
+
+console.log('What is the capital of Peru?')
+
+setTimeout(function(){
+    console.log('Lima!')
+    
+    setTimeout(function(){
+        console.log('Ready for next question?')
+
+    }, 3000)
+}, 3000)
+
+
+2. element.style - target the style of an element from Javascript.
+
+<div id="answer" class="answer">
+			<p>
+				The average rabbit has 24 whiskers, 12 on each side!
+                Amazingly, no two whiskers are the same length! 
+        </p>
+</div>
+
+const revealBtn = document.getElementById('reveal-btn')
+const answer = document.getElementById('answer')
+const question = document.getElementById("question")
+
+revealBtn.addEventListener('click', function(){
+    answer.style.display = 'block'
+    revealBtn.style.display = "none"
+     question.style.backgroundColor = "#68e1fd"
+        question.style.color = "#1434A4"
+})
+
+//for CSS properties with dash like background-color, convert this into camelCase -> backgroundColor. 
+
+
+3. forms
+
+<form>
+<label for="astronautName">Choose a username</label>
+    <input 
+        required
+        type="text" 
+        id="astronautName" 
+        name="astronautName"
+        placeholder="Neil Armstrong"
+        minlength="2"
+        maxlength="7"
+        >
+<label for="astronautName">How old are you?</label>
+</form>
+
+Validation attributes:
+
+minlength="2"
+maxlength="7"
+min=""
+max=""
+pattern="[a-zA-Z0-9]+" this is called rege
+
+const countryCodePattern = "[a-zA-Z]{3}";
+[a-zA-Z]: Matches any uppercase or lowercase letter.
+{3}: Specifies that exactly three letters are required.
+
+Types of buttons:
+1. submit
+2. reset
+3. button
+
+
+
+
+4. formData & .get()
+
+FormData(formElement) - function that parses information given in a form by a user into an object
+
+This is a constructive function that needs the keyword "new" when declared. 
+
+const loginFormData = new FormData(loginForm)
+
+.get() - gets the data passed in the FormData function. 
+
+const name = loginFormData.get('name') <- you pass in the value of the name attribute of the element being called inside the parentheses
+
+
+
+5. event.preventDefault
+
+const loginForm = document.getElementById('login-form')
+
+loginForm.addEventListener('submit', function(e){
+    e.preventDefault()
+})
+
+Other events: 
+
+Hover: "mouseover"
+
+
+6. CSS: row-reverse
+
+flex-direction: row-reverse
+
+
+7. toggling classes
+
+you can use the .classlist.toggle('reverse') to add a certain class to the classlist of an element. 
+
+
+classList
+toggle
+
+const sortBtn = document.getElementById('sort-btn')
+const container = document.getElementById('container')
+                  
+sortBtn.addEventListener('click', function(){
+    container.classList.toggle('reverse')
+})
+
+
+
+8. disabled attribute
+
+disables elements once added as an attribute. It is a boolean that can be set to true and false.
+
+const decrement = document.getElementById('decrement')
+const increment = document.getElementById('increment')
+const quantityDisplay = document.getElementById('quantity-display')
+const cartBtn = document.getElementById('cartBtn')
+
+let quantity = 0
+
+decrement.addEventListener('click', function(){
+    quantity--
+    if (quantity === 0){
+        decrement.disabled = true
+        cartBtn.disabled = true
+    }     
+    quantityDisplay.innerText = quantity
+})
+
+increment.addEventListener('click', function(){
+    quantity ++
+    decrement.disabled = false
+    cartBtn.disabled = false
+    quantityDisplay.innerText = quantity
+})
+ 
+cartBtn.addEventListener('click', function(){
+    console.log(`Your order for ${quantity} pairs of shoes is being processed`)
+
+})
+
+9. Accesibility
+
+attribute: aria-label: 
+
+this can be used in place of a label which will be read out loud for people using assistive technologies.
