@@ -1,4 +1,11 @@
 Along the way:
+1. setTimeout()
+2. element.style
+3. Forms
+4. new FormData, .get(''), regex 
+5. e.preventDefault(); 
+6. .classlist.toggle('reverse')
+7. disabled
 
 1. setTimeout - used to delay code execution
 
@@ -62,7 +69,7 @@ minlength="2"
 maxlength="7"
 min=""
 max=""
-pattern="[a-zA-Z0-9]+" this is called rege
+pattern="[a-zA-Z0-9]+" this is called regex
 
 const countryCodePattern = "[a-zA-Z]{3}";
 [a-zA-Z]: Matches any uppercase or lowercase letter.

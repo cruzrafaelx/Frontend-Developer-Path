@@ -1,0 +1,184 @@
+1. for of
+2. radio & checkbox inputs -
+3. getElementsByClassName
+4. querySelector
+5. classList.remove
+6. import/export
+7. .includes()
+8. .filter()
+9. e.target.id
+10. .parentElement
+
+
+
+1. for of - nicer way of iteration
+
+const characters = [
+    {
+        title: 'Ninja',
+        emoji: '🥷',
+        powers: ['agility', 'stealth', 'aggression'],
+    },
+    {
+        title: 'Sorcerer',
+        emoji: '🧙',
+        powers: ['magic', 'invisibility', 'necromancy'],
+    },
+    {
+        title: 'Ogre',
+        emoji: '👹',
+        powers: ['power', 'stamina', 'shapeshifting'],
+    },
+    {
+        title: 'Unicorn',
+        emoji: '🦄',
+        powers: [ 'flight', 'power', 'purity'],
+    }
+]
+
+
+// In this iteration, the power of each character gets logged in the console.
+
+for (let character of characters){
+    for (let power of character.powers){
+        console.log(power)
+    }
+}
+
+
+2. Import & export
+
+export variableName
+import { dinnerPartyGuests } from './data.js'
+
+add module type in <script></script> in HTML
+
+<script src="index.js" type="module"></script>
+
+3. getElementsByClassName - grab all elements with a given class with one line of code
+
+const productsArray = document.getElementsByClassName('product')
+    for(let product of productsArray){
+        product.classList.remove("purchased")
+        product.classList.add("on-offer")
+    })
+
+
+
+
+3. radio
+
+give radios the same name attribute to make a radio group that would allow the user to choose only one choice among the group. 
+
+4. .includes()- method that checks if an array holds a given value
+
+const emojis = ['🐥','🐯','🐼']
+console.log(emojis.includes('🐥')) === true
+
+9. e.target.id - this shows the id of the cause(element) of a certain event
+
+container.addEventListener('click', function(e){
+    console.log(e.target.id)
+})
+
+10. .parentElement
+
+container.addEventListener('click', function(e){
+      document.getElementById(e.target.id).parentElement.style.backgroundColor = 'lightblue'
+})
+
+11. Updating the classlist  
+
+classList.remove('')
+classList.add('')
+
+document.addEventListener('click', function(e){
+    document.getElementById(e.target.id).parentElement.classList.add('read')
+    document.getElementById(e.target.id).parentElement.classList.remove('unread')
+})
+
+12. querySelector - grab elements and pseudoelements as well.
+
+//function that grabs input elements with a type of radio that have been checked already when the submit button is clicked. 
+submitBtn.addEventListener('click', function(){
+    const checkedRadio = document.querySelector('input[type="radio"]:checked')
+    console.log(checkedRadio.value)
+})
+
+13. Checkboxes
+
+<div>
+    <label for="accept-terms">
+        I accept these terms and conditions
+    </label>
+    <input type="checkbox" id="accept-terms">
+</div>
+
+continueBtn.addEventListener('click', function(){
+
+    if (acceptTerms.checked){
+        console.log("Terms accepted!")    
+    }
+    else{
+        console.log("Terms refused!")         
+    }
+
+
+14. .filter() - getting only the element we want from an array
+
+Example 1: 
+
+const ages = [1, 5, 9, 23, 56, 10, 47, 70, 10, 19, 23, 18]
+
+const adults = ages.filter(function(age){
+    return age >= 18)
+})
+
+const children = ages.filter(function(age){
+    return age < 18
+})
+
+Example 2: 
+
+const series = [
+    {
+        name: 'The Wire',
+        location: 'Baltimore',
+        lengthInHours : 60,
+        genres: ['action', 'thriller', 'detective', 'suspense']
+    },
+    {
+        name: 'Game of Thromes',
+        location: 'Westeros and Essos',
+        lengthInHours : 70.25,
+        genres: ['fantasy', 'action', 'tragedy']
+    },
+    {
+        name: 'Friends',
+        location: 'New York',
+        lengthInHours : 85,
+        genres: ['comedy', 'romance', 'drama']
+    },
+    {
+        name: 'The Walking Dead',
+        location: 'Atlanta',
+        lengthInHours : 131,
+        genres: ['zombie', 'apocalypse', 'thriller', 'suspense']
+    },
+    {
+        name: 'The Big Bang Theory',
+        location: 'Pasadena',
+        lengthInHours : 139.66,
+        genres: ['comedy', 'nerd', 'romance']
+    },
+]
+
+const newYorkSeries = series.filter(function(show){
+    return show.location === 'New York'
+})
+
+const thrillers = series.filter(function(show){
+    return show.genres.includes('thriller')
+})
+
+Example 3: Find matches with .filter()
