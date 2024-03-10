@@ -1,0 +1,98 @@
+Table of Contents:
+
+1. textarea
+2. forEach
+3. CDN
+4. Data Attribute
+
+
+1. textarea - multiple line input field 
+<textarea 
+placeholder="Ask me anything!" 
+id="chat-input"
+></textarea>
+
+//CSS
+textarea{
+    width: 239px;
+    height: 50px;
+    margin: 0px;
+    padding: 5px;
+    resize: none;
+}
+
+2. forEach - method for iterating over arrays
+
+const characters = [
+    {
+        title: 'Ninja',
+        emoji: '🥷',
+        powers: ['agility', 'stealth', 'aggression'],
+    },
+    {
+        title: 'Sorcerer',
+        emoji: '🧙',
+        powers: ['magic', 'invisibility', 'necromancy'],
+    },
+    { 
+        title: 'Ogre',
+        emoji: '👹',
+        powers: ['power', 'stamina', 'shapeshifting'],
+    },  
+    { 
+        title: 'Unicorn',
+        emoji: '🦄',
+        powers: [ 'flight', 'power', 'purity'],
+    }
+]
+
+// for (let character of characters){
+//     console.log(character)
+// }
+
+characters.forEach(function(character){
+    character.powers.forEach(function(power){
+        console.log(power)
+    })
+
+
+characters.forEach(function(character, index){
+    console.log(index, character.title)
+})
+
+
+3. CDN - Content Delivery Network
+- remote service
+- provides assets to web apps, e.g. functions, styles, icons
+- gives us a snippet of code that will bring the asset into our application
+
+https://fontawesome.com/
+
+4. Data Attribute
+-  In JavaScript, the data attribute typically refers to custom data attributes that can be added to HTML elements. These attributes provide a way to store extra information about an element that is not directly tied to its appearance or behavior. Custom data attributes are prefixed with "data-" followed by a name of your choice.
+
+<i class="fa-solid fa-heart" data-heart="image-1"></i>
+
+- do not use uppercase letter when naming data attributes in HTML.
+
+Best Practice:
+- separate words with dashes in HTML
+- Use camelCase in Javascript
+
+Example: 
+
+document.addEventListener('click', function(e) {
+    if (e.target.dataset.shareIcon){
+        console.log(e.target.dataset.shareIcon)
+    }
+    else if (e.target.dataset.heart){
+        console.log(e.target.dataset.heart)
+    }
+})
+
+5. Shallow Copy and Deep Copy / copying objects and array
+- If you make a reference to an existing object in an array and modify it, it will not be saved in the memory. It will make a shallow copy and directly change the value of the original copy.
+
+- If you want to create an original copy, this is called making a deep copy.
+
+6. Conditionally Render CSS  

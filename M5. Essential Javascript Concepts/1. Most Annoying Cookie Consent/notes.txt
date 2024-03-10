@@ -1,11 +1,13 @@
-Along the way:
+Table of Contents:
+
 1. setTimeout()
 2. element.style
-3. Forms
-4. new FormData, .get(''), regex 
+3. Forms & regex 
+4. new FormData, .get('')
 5. e.preventDefault(); 
-6. .classlist.toggle('reverse')
-7. disabled
+6 & 7. .classlist.toggle('reverse')
+8. disabled attribute
+9. aria-label:
 
 1. setTimeout - used to delay code execution
 

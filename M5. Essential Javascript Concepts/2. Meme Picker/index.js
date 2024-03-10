@@ -3,26 +3,60 @@ import { catsData } from "./data.js"
 const emotionRadios = document.getElementById("emotion-radios")
 const getImgBtn = document.getElementById("get-image-btn")
 const gifsOnlyBox = document.getElementById('gifs-only-option')
+const memeModal = document.getElementById('meme-modal')
+const memeModalCloseBtn = document.getElementById('meme-modal-close-btn')
+const memeModalInner = document.getElementById('meme-modal-inner')
 
 
+emotionRadios.addEventListener("change", highlightCheckedOption)
 
-//Function to create an array of emotions from the above array
-function getEmotionsArray(cats){
+memeModalCloseBtn.addEventListener("click", closeMemeModal)
 
-    let emotionsArray =[]
+getImgBtn.addEventListener('click', renderCat)
 
-    for(let cat of cats){
-        for(let emotion of cat.emotionTags){
-            if(!emotionsArray.includes(emotion)){
-                emotionsArray.push(emotion)
-            }
-        }
+
+function highlightCheckedOption(e){
+    // function that highlights the text and the radio of the clicked radio
+
+    // removes the highlight class from each element with the radio class
+    const radiosArray = document.getElementsByClassName('radio')
+    for(let radio of radiosArray){
+        radio.classList.remove('highlight')
     }
 
-    return emotionsArray
+    document.getElementById(e.target.id).parentElement.classList.add('highlight')
+    
 }
 
-getImgBtn.addEventListener('click', getMatchingCatsArray)
+function closeMemeModal(){
+
+    memeModal.style.display = "none"
+}
+
+function renderCat(){
+    const catObject = getSingleCatObject()
+    memeModalInner.innerHTML = `
+    <img
+    class = "cat-img"
+    src = "./images/${catObject.image}"
+    alt = "${catObject.alt}"
+    >` 
+
+    memeModal.style.display = "flex"
+    
+}
+
+function getSingleCatObject(){
+    const catsArray = getMatchingCatsArray()
+    
+    if(catsArray.length === 1){
+        return catsArray[0]
+    } else{
+        const randomNumber = Math.floor(Math.random() * catsArray.length)
+        return catsArray[randomNumber]
+    }
+
+}
 
 function getMatchingCatsArray(){
 
@@ -45,23 +79,24 @@ function getMatchingCatsArray(){
     })
 
     return matchingCatsArray
+    
     }   
 }
 
+//Function to create an array of emotions from the above array
+function getEmotionsArray(cats){
 
-emotionRadios.addEventListener("change", highlightCheckedOption)
+    let emotionsArray =[]
 
-// function that highlights the text and the radio of the clicked radio
-function highlightCheckedOption(e){
-    
-    // removes the highlight class from each element with the radio class
-    const radiosArray = document.getElementsByClassName('radio')
-    for(let radio of radiosArray){
-        radio.classList.remove('highlight')
+    for(let cat of cats){
+        for(let emotion of cat.emotionTags){
+            if(!emotionsArray.includes(emotion)){
+                emotionsArray.push(emotion)
+            }
+        }
     }
 
-    document.getElementById(e.target.id).parentElement.classList.add('highlight')
-    
+    return emotionsArray
 }
 
 
@@ -74,7 +109,7 @@ function renderEmotionsRadios(cats){
 
         radioItems += `
         
-        <div class="radio">
+        <div class="radio"> 
             <label for="${emotion}">${emotion}</label>
             <input
                 type="radio"

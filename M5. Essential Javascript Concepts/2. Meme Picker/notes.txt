@@ -1,13 +1,17 @@
+Table of Contents
+
 1. for of
-2. radio & checkbox inputs -
+2. Import and Export
 3. getElementsByClassName
-4. querySelector
-5. classList.remove
-6. import/export
-7. .includes()
-8. .filter()
-9. e.target.id
-10. .parentElement
+4. radio
+5. .includes()
+6. e.target.id
+7. .parentElement
+8. classList.remove & classList.add
+9. querySelector
+10. checkboxes
+11. .filter()
+12. select (dropdown)
 
 
 
@@ -64,30 +68,28 @@ const productsArray = document.getElementsByClassName('product')
     })
 
 
-
-
-3. radio
+4. radio
 
 give radios the same name attribute to make a radio group that would allow the user to choose only one choice among the group. 
 
-4. .includes()- method that checks if an array holds a given value
+5. .includes()- method that checks if an array holds a given value
 
 const emojis = ['🐥','🐯','🐼']
 console.log(emojis.includes('🐥')) === true
 
-9. e.target.id - this shows the id of the cause(element) of a certain event
+6. e.target.id - this shows the id of the cause(element) of a certain event
 
 container.addEventListener('click', function(e){
     console.log(e.target.id)
 })
 
-10. .parentElement
+7. .parentElement
 
 container.addEventListener('click', function(e){
       document.getElementById(e.target.id).parentElement.style.backgroundColor = 'lightblue'
 })
 
-11. Updating the classlist  
+8. Updating the classlist  
 
 classList.remove('')
 classList.add('')
@@ -97,7 +99,7 @@ document.addEventListener('click', function(e){
     document.getElementById(e.target.id).parentElement.classList.remove('unread')
 })
 
-12. querySelector - grab elements and pseudoelements as well.
+9. querySelector - grab elements and pseudoelements as well.
 
 //function that grabs input elements with a type of radio that have been checked already when the submit button is clicked. 
 submitBtn.addEventListener('click', function(){
@@ -105,7 +107,7 @@ submitBtn.addEventListener('click', function(){
     console.log(checkedRadio.value)
 })
 
-13. Checkboxes
+10. Checkboxes
 
 <div>
     <label for="accept-terms">
@@ -124,7 +126,7 @@ continueBtn.addEventListener('click', function(){
     }
 
 
-14. .filter() - getting only the element we want from an array
+11. .filter() - getting only the element we want from an array
 
 Example 1: 
 
@@ -182,3 +184,34 @@ const thrillers = series.filter(function(show){
 })
 
 Example 3: Find matches with .filter()
+
+12. <select></select> (dropdown element)
+<option></option>
+
+attributes: size="3", multiple
+
+<form>
+    <label for="superpowers">Choose Your Superpower:</label>
+    <select id="superpowers" size="6">
+        <optgroup label="physical">
+            <option value="flight">Flight</option>
+            <option value="invisibility">Invisibility</option>
+            <option value="superStrengt h" selected>Super Strength</option>
+        </optgroup>
+        <optgroup label="psychological">
+            <option value="telepathy">Telepathy</option>
+            <option value="timeTravel">Time Travel</option>
+            <option value="wisdom">Wisdom</option>
+        </optgroup>
+    </select>
+
+    <button type="submit">Reveal My Superpower</button>
+</form>
+
+
+Stretch Goals:
+
+1. Click outside the modal to close the modal
+2. Display more than one result (Thumbnails in a gallery)
+3. Refactor the UX
+4. Own idea
