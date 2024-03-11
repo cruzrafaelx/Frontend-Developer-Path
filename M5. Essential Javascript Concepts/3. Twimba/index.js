@@ -1,18 +1,8 @@
 import { tweetsData } from "./data.js"
+//CDN that generates a UUID use uuidv4() to generate a UUID
+import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 
-const tweetBtn = document.getElementById("tweet-btn")
-const tweetInput = document.getElementById("tweet-input")
-const heartIcon = document.getElementsByClassName("fa-heart")
-
-
-
-tweetBtn.addEventListener("click", function(){
-
-  console.log(tweetInput.value)
-
-})
-
-// Identifies which icon was click
+// Identify which icon was click
 document.addEventListener("click", function(e){
 
   if(e.target.dataset.like){
@@ -27,12 +17,14 @@ document.addEventListener("click", function(e){
   else if(e.target.dataset.reply){
     handleReplyClick(e.target.dataset.reply)
   }
+
+  else if(e.target.id === "tweet-btn"){
+    handleTweetBtnClick()
+  }
   
 })
 
-
-
-// Identifies an object in the tweetsData array and increment or decrement the number of likes and calls the render function
+// Identify an object in the tweetsData array and increment or decrement the number of likes and calls the render function
 function handleLikeClick(tweetId){
 
   const targetTweetObj = tweetsData.filter(function(tweet){
@@ -53,6 +45,7 @@ function handleLikeClick(tweetId){
   
 }
 
+// change retweet icon when clicked
 function handleRetweetClick(tweetId){
 
   const targetTweetObj = tweetsData.filter(function(tweet){
@@ -70,6 +63,32 @@ function handleRetweetClick(tweetId){
   
   render()
   
+}
+
+// add new tweet
+function handleTweetBtnClick(){
+
+  const tweetInput = document.getElementById("tweet-input")
+
+  if(tweetInput.value){
+  tweetsData.unshift(
+  {
+    handle: `@Scrimba`,
+    profilePic: `images/scrimbalogo.png`,
+    likes: 0,
+    retweets: 0,
+    tweetText: tweetInput.value,
+    replies: [],
+    isLiked: false,
+    isRetweeted: false,
+    uuid: uuidv4()
+})
+  tweetInput.value = ''
+} else {
+  alert("Tweets can't be empty!")
+}
+  render()
+ 
 }
 
 //hides and shows the replies by toggling the css class 'hidden'
@@ -115,6 +134,8 @@ function getFeedHtml(){
       
     }
 
+
+    // render the tweets
     feedHtml +=  `
 
     <div class="tweet">
@@ -153,13 +174,13 @@ function getFeedHtml(){
 
     
 
-
+render()
 function render(){
 
   document.getElementById("feed").innerHTML = getFeedHtml()
 }
 
-render()
+
   
 
 

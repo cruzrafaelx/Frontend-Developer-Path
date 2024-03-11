@@ -2,8 +2,9 @@ Table of Contents:
 
 1. textarea
 2. forEach
-3. CDN
+3. CDN (Content Delivery Network)
 4. Data Attribute
+5. Shallow Copy and Deep Copy
 
 
 1. textarea - multiple line input field 
@@ -96,3 +97,37 @@ document.addEventListener('click', function(e) {
 - If you want to create an original copy, this is called making a deep copy.
 
 6. Conditionally Render CSS  
+
+if(tweet.replies.length > 0){
+            tweet.replies.forEach(function(reply){
+                repliesHtml+=`
+<div class="tweet-reply">
+    <div class="tweet-inner">
+        <img src="${reply.profilePic}" class="profile-pic">
+            <div>
+                <p class="handle">${reply.handle}</p>
+                <p class="tweet-text">${reply.tweetText}</p>
+            </div>
+        </div>
+</div>
+`
+            })
+
+
+7. Refactoring
+- Improving the design of an existing code
+
+8. UUID or GUID
+- Universally Unique Identifiers 
+- String of 36 characters, used to identify pieces of data
+- Highly globally unique
+
+Version 4 UUID
+- randomly generated characters
+- current go to UUID for most situations
+- https://github.com/uuidjs/uuid#cdn-builds
+ 
+
+ //the as keyword basically allows you to rename V4 
+import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
+  console.log(uuidv4()); // ⇨ '1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed'
