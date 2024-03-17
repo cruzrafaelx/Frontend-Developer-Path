@@ -1,0 +1,271 @@
+1. Object Destructuring
+2. .map() method
+3. .join() Method
+4. Continue & Break
+5. Different Function Expressions
+6. .reduce() method
+7. .reduce() Method with objects
+8. Default parameter
+9. Ternary Operator 
+
+
+1. Object Destructuring - enables us to extract properties from objects into distinct variables
+
+const favouriteFilm = {
+    title: "Top Gun",
+    year: "1986",
+    genre: "action",
+    star: "Tom Cruise",
+    director: "Tony Scott"
+} 
+
+//Destructured object
+const {title, year, genre, star, director} = favouriteFilm
+
+// const title = favouriteFilm.title
+// const year = favouriteFilm.year
+// const genre = favouriteFilm.genre
+// const star = favouriteFilm.star
+// const director = favouriteFilm.director
+
+
+
+2. .map() method
+- iterates over an array and gives us a new array.
+
+const distanceWalkedMilesArr = [140, 153, 161, 153, 128, 148]
+
+const conversionFactorMilesToKm = 1.6
+
+const distanceWalkedKmArr = distanceWalkedMilesArr.map(function(distanceMiles, index){
+    return `Month ${index}: ${distanceMiles * conversionFactorMilesToKm}KM`
+})
+
+console.log(distanceWalkedKmArr)
+
+or 
+
+function convertMilesToKms() {
+    return distanceWalkedMilesArr.map(function (distanceMiles, index) {
+        return `Month ${index}: ${distanceMiles * conversionFactorMilesToKm}KM`
+    })
+}
+
+console.log(convertMilesToKms())
+
+
+
+3. .join() Method 
+- concatenates elements of an array into a string
+- choose how elements are separated
+- returns the new string
+- use to remove default comma separator
+
+const guestsArr = ['Amy', 'Clare', 'Keith', 'Dan'] 
+
+console.log(guestsArr.join(' '))
+
+Amy Clare Keith Dan
+
+Use .map() if you need to make use of the new array it returns.
+Use .forEach() if you dont need to create a  new array
+
+
+
+
+4. Continue & Break
+
+Break terminates the loop if a certain condition is met.
+Continue springs over an element during the loop, if a certain condition is met.
+
+const expensesAndRefunds = [
+    { description: 'Groceries', amount: 50, year: 2023 },
+    { description: 'Electronics', amount: -30, year: 2023 },
+    { description: 'Dinner', amount: 40, year: 2023 },
+    { description: 'Clothing', amount: 60, year: 2023 },
+    { description: 'Entertainment', amount: 25, year: 2023 },
+    { description: 'Rent', amount: -500, year: 2024 },
+    { description: 'Utilities', amount: 100, year: 2024 },
+    { description: 'Books', amount: 20, year: 2024 },
+    { description: 'Fitness', amount: 30, year: 2024 },
+    { description: 'Gifts', amount: 15, year: 2024 },
+]
+
+let totalSpent = 0
+const cutoffDate = 2024
+
+for (let i = 0; i < expensesAndRefunds.length; i++) {
+    const currentExpenseOrRefund = expensesAndRefunds[i]
+    
+    if (currentExpenseOrRefund.year >= cutoffDate) {
+        console.log(`Reached cutoff date, exiting loop`)
+        break   
+    }
+    
+    if (currentExpenseOrRefund.amount < 0) {
+        console.log(`Skipping ${currentExpenseOrRefund.description} due to refund`)
+        continue
+    } 
+    
+    totalSpent += currentExpenseOrRefund.amount 
+}
+
+
+console.log(`Total amount spent on items in 2023: $${totalSpent}`)
+
+
+
+5. Different Function Expressions
+
+A. Normal Function / Function declaration
+
+Hoisting: function declarations are moved to the top of their scope before code execution. Can be called anywhere in  the code.
+
+function getSpendAlert(amount) {
+    return `Warning! You just spent £${amount}!`
+}
+
+B. Function Expression
+
+- This is not hoisted. You cannot call it before code execution.
+- Cleaner and easier to read
+ 
+
+cost getSpendAlert = function(amount){
+    return `Warning! You just spent £${amount}!`
+}
+
+C. Arrow Functions
+
+!!! If you have no parameter, put empty bracket.
+
+const getSpendAlert = () => {
+    return `Warning! You just spent money!`
+} 
+
+
+
+!!! If you have one parameter, you do not need a bracket.
+
+const getSpendAlert = amount => {
+    return `Warning! You just spent £${amount}!`
+} 
+
+- you can also make a one line arrow function by removing the curly braces and return keyword
+
+const getSpendAlert = amount => `Warning! You just spent £${amount}!`
+
+
+
+!!! If you have two parameters, you need a bracket.
+
+const getSpendAlert = (name, amount) => {
+    return `Warning! You just spent £${amount}!`
+} 
+
+
+const distanceTraveledMiles = [267, 345, 234, 190, 299]
+
+!!!Inline function
+const distanceTraveledKm = distanceTraveledMiles.map(function(distance){
+    return Math.round(distance * 1.6)
+})
+
+!!!Arrow function
+const distanceTraveledKm = distanceTraveledMiles.map(distance => Math.round(distance * 1.6))
+
+console.log(distanceTraveledKm)
+
+
+
+6. Import Export named
+
+- you can change the name of an imported data using the keyword "as"
+- you can have 2 or more arrays in the same file. If this is the case, export the arrays by declaring export below the file:
+
+export { interplanetaryDestinationsArr, shortSpaceTripsArr }
+
+- The import would look like: 
+
+import {
+    interplanetaryDestinationsArr as destinations,
+    shortSpaceTripsArr
+} from '/data.js'
+
+- export default 
+- you can use this for functions as well. You can use the default keyword only once every file. If you import it, you can change the name of the function.
+
+function getMatchingTripsArr(arr, keyword){
+    return arr.filter(function(trip){
+        return trip.description.toLowerCase().includes(keyword)
+    })
+}
+
+export default getMatchingTripsArr
+
+
+
+6. reduce.() Method with arrays
+- This method works like useState() in React. The first element gets assigned to the first parameter and the second element to the second parameter. These 2 gets added, the sum will be returned to the first parameter, and the third element will be then stored in the second, replacing the second element.
+
+const rainJanuaryByWeek = [ 10, 20, 0, 122 ]
+
+const totalRainfallJanuary = rainJanuaryByWeek.reduce(function(total, currentElement){
+    console.log('total: ' + total, 'currentElement: ' + currentElement)
+    return total + currentElement
+})
+
+console.log(totalRainfallJanuary) // 152 
+
+// total: 10,"currentElement: 20"
+// ›total: 30,"currentElement: 0"
+// ›total: 30,"currentElement: 122"
+// ›152
+
+7. .reduce() Method with objects
+- You can change the value of the first parameter by adding 0 as a second parameter of the .reduce() method
+
+import { studentsArr } from '/studentsArr'
+
+function calculateClassAverage(studentsArr) {
+    const totalGrades = studentsArr.reduce(function(total, currentStudent){
+        return total + currentStudent.grade
+    }, 0)
+    return totalGrades / studentsArr.length
+}
+
+console.log(calculateClassAverage(studentsArr))
+
+8. Default Parameter
+
+function calculateTotalCost(itemsBoughtArr, discount = 0) {
+
+    const total = itemsBoughtArr.reduce((total, currentItem) => {
+        return total + currentItem.priceUSD
+    }, 0
+    )
+    return total - discount
+}
+
+
+
+
+9. Ternary Operator
+- Alternative to if/else
+
+condition ? expression (if true) : expression (if false)
+
+const exerciseTimeMins = 0
+
+// let message = ''
+
+// if (exerciseTimeMins < 30) {
+//     message = 'You need to try harder!'
+// }
+// else {
+//     message = 'Doing good!'
+// }
+
+const message = exerciseTimeMins < 30 ? 'You need to try harder!' : 'Doing good!'
+
+console.log(message)
