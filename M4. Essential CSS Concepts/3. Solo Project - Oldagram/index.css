@@ -2,6 +2,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Source Sans 3';
+    font-size: 22px;
 }
 
 /* Layout */
@@ -9,7 +10,6 @@ html, body {
 .container{
     width: 800px;
     margin: 0 auto;
-    
 }
 
 .header{
@@ -38,8 +38,6 @@ header img{
 }
 
 .prof-name{
-    font-weight: 700;
-    font-size: 22px;
     margin-bottom: -15px;
 }
 
@@ -47,7 +45,19 @@ header img{
     font-weight: 400;
     font-size: 20px;
 }
+.comment-sec{
+    padding: 20px 0px 0px 30px;
+    
+}
 
+.comments{
+    display: flex;
+    margin-top: -20px;
+}
+
+.comments p{
+    margin-right: 5px;
+}
 
 
 /* Utility Classes */
@@ -59,6 +69,15 @@ header img{
 
 .post{
     width: 800px;
+}
+
+.icon{
+    height: 50px;
+    margin-right: 20px;
+}
+
+.text-bold{
+    font-weight: 700;
 }
 
 

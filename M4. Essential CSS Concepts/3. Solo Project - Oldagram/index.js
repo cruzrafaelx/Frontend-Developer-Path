@@ -1,3 +1,6 @@
+const html = document.getElementById("html-render")
+
+
 const posts = [
     {
         name: "Vincent van Gogh",
