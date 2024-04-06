@@ -1,0 +1,120 @@
+body{
+  color: #2b283a;
+  font-family: Roboto;
+  font-size: 16px;
+  margin: 0;
+}
+
+
+/* typography */
+
+header, section, footer{
+  padding: 45px 0;
+}
+
+header, #container-two{
+  background-color: #5f29a3;
+
+}
+
+h1, h3{
+  margin: 0px;
+}
+
+h1{
+  font-size: 36px;
+}
+
+h2{
+  margin-top: 0;
+}
+
+h3{
+  color:#d0aaff;
+  font-size: 20px;
+}
+
+h1, #container-two h2, #container-two p{
+  color: whitesmoke;
+}
+
+p{
+  line-height: 23px;
+}
+
+/* links */
+
+#first-link{
+  color: #ef5839;
+  text-decoration: underline dotted;
+}
+
+.btn-dark{
+  background-color: #5f29a3;
+  color: whitesmoke;
+}
+
+.btn-mid{
+  background-color: #f0e0ff;
+  color: #5f29a3;
+}
+
+.btn-light{
+  background-color: whitesmoke;
+  color: #5f29a3;
+}
+
+.btn{
+  padding: 10px 19px;
+  border-radius: 4.6px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  
+}
+
+.btn:hover,
+.btn:active{
+  background-color: #f3e885;
+  color: #2b283a;
+}
+
+
+
+
+
+
+
+
+
+
+/* layout */
+
+.sneakers-purple{
+  width: 100%;
+}
+
+.container{
+  width: 620px;
+  margin: 0 auto;
+}
+
+
+#container-two{
+  padding: 35px;
+}
+
+.image-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-container img{
+  width: 300px;
+  border-radius: 5px;
+}
+
+footer{
+  color: #5f29a3;
+  text-align: center;
+}

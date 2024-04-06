@@ -1,0 +1,162 @@
+1. Semantic HTML
+2. Pseudo Selector
+3. Container / Center aligning the page
+4. CSS Organization
+5. Specificity
+6. Compound Selectors
+7. Specificity and Compound Selector 
+8. line-height attribute
+9. ! important
+10. Links vs Buttons
+11. block, inline, inline-block 
+12. Multiple classes in one element
+13. flexbox: flex-wrap;
+14. Overflow
+15. Float
+
+
+1. Semantic HTML
+a. <header> - site title, logo and nav
+b. <section> - stand alone section
+c. <footer> - copyright
+d. <main> - page's unique content
+
+Why use?
+- Better accesibility
+- Make our HTML accesibility
+- Better for SEO 
+
+
+2. Pseudo Selector
+
+a:hover{
+  color:
+  font-weight:
+  text-decoration: underline;
+}
+
+a:active{
+
+}
+
+a:focus{
+ lets you move through links with tab key 
+}
+
+a:visited
+
+/*  use these states in this order
+L ink (a)
+o
+V isitted
+e
+H over
+A ctive
+t
+e
+
+ */
+
+
+3. Container / Center aligning the page
+ !!! Center sections by giving the container a width and aligning it to the center using margin: 0 auto;
+
+4. CSS Organization
+- use comments to divide up the CSS into segments
+
+5. Specificity
+- properties that are declared lower in the order gets prioritized.
+- id beats the class
+
+CSS Points
+1 point - element
+10 points - class
+100 points - id
+
+6. Compound Selectors   
+
+- lets you target children elements inside of a parent element
+
+
+.ad-container a{
+    color: limegreen;
+    font-size: 18px;
+}
+
+this targets all anchor elements inside the ad-container
+
+.links-container a:hover{
+    color: yellow;
+}
+
+7. Specificity and Compound Selector 
+- You add the points of the element and the id / class
+
+8. line-height
+
+9. important key word - Disrupts the natural cascading order.
+
+.sub-title {  
+    color: darkgreen !important; 
+}
+
+10. Links vs Buttons 
+
+Buttons are for interaction. It affects the website's front-end or back-end.
+Links are for navigation. Somewhere on the same page or somewhere else on the internet.
+
+11. block, inline, inline-block 
+
+A. block
+- Stack on top of each other
+- div, p, h1
+- set height and margin top and bottom
+
+B. inline
+- sit side by side
+- span and a 
+- cant set height and margin top and bottom 
+
+C. inline-block 
+- sit side by side 
+- buttond and input 
+- set height and margin top and bottom
+
+12. Multiple classes in one element
+<div class="card"> 
+    <h1>Tesla</h1>
+    <p>Live Price:</p>
+    <p>$1003.8</p>
+    <p>📝 📊 🔎</p>
+    <div class="price price-up"><p>+31.58 (3.23%)</p></div>
+</div>
+
+13. Flexbox: flex-wrap 
+
+- It wraps the children element within the width of the parent element to prevent horizontal scroll bar. 
+
+.thumbnails {
+    display: flex;
+    flex-wrap: wrap; (other values: nowrap, wrap-reverse)
+    max-width: 560px;
+    margin: 50px auto;
+}
+
+14. Overflow in CSS
+
+overflow: visible; - default feature
+overflow: hidden; hides overflowing content. 
+overflow: scroll; adds a scrollbar to the container even if tehre is no overflow: auto; adds scrollbar only when needed, if there is an overflow.
+
+overflow-x: hidden;
+overflow-y: scroll;
+
+15. float
+- lets text float around an element. 
+
+float: left;
+clear: left, right, both; - disallows any object to float on the left of an element. 
+
+You can use this for dropcaps.
+
+display: flow-root; makes sure that the floated element is enclosed inside the parent element's borders. Without this, the floated element will be overflowing. 
