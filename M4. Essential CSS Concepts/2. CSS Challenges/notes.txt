@@ -1,0 +1,11 @@
+1. Center everything
+- add width and center using 0 auto
+
+2. Import fonts
+- set font-family for the whole page in body selector
+
+3. Fix typography
+
+4. Spacing and parting the page
+
+Utility Class -
