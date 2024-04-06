@@ -1,0 +1,64 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans 3';
+}
+
+/* Layout */
+
+.container{
+    width: 800px;
+    margin: 0 auto;
+    
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px;
+    border-bottom: 1px solid #C6C6C6;
+}
+
+header img{
+    height: 130px;
+    margin: 0px 30px;
+}
+
+.prof-header{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border: none;
+    padding: 8px;
+}
+
+.prof-header .avatar{
+    margin: 0px 20px 0 30px;
+}
+
+.prof-name{
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: -15px;
+}
+
+.prof-location{
+    font-weight: 400;
+    font-size: 20px;
+}
+
+
+
+/* Utility Classes */
+
+.avatar{
+    height: 70px;
+    border-radius: 50px;
+}
+
+.post{
+    width: 800px;
+}
+
+
