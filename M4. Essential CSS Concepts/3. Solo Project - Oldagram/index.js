@@ -7,7 +7,13 @@ document.addEventListener("click", function(e){
     }
 })
 
+document.addEventListener("dblclick", function(e){
+    if(e.target.dataset.post){
+        handleLikeDoubleClick(e.target.dataset.post)
+    }
+})
 
+// handler for clicks on like icon
 function handleLikeClick(postId){
    const targetPost = posts.filter(function(post){
         return postId === post.uuid
@@ -25,6 +31,22 @@ function handleLikeClick(postId){
    render()
 }
 
+function handleLikeDoubleClick(postId){
+    const targetPost = posts.filter(function(post){
+         return postId === post.uuid
+    })[0]
+     
+    if(!targetPost.isLiked){
+     targetPost.likes++
+    }
+    else if(targetPost.isLiked){
+     targetPost.likes--
+    }
+ 
+    targetPost.isLiked = !targetPost.isLiked
+ 
+    render()
+ }
 
 
 
@@ -36,7 +58,7 @@ function getFeedHtml(){
     posts.forEach(function(post){
 
         // changes the value of likeIconClass
-        
+
         let likeIconClass = ``
         
         likeIconClass = post.isLiked ? "liked" : likeIconClass
@@ -53,7 +75,7 @@ function getFeedHtml(){
         </section>
         
         <section class="container">
-            <img src="${post.post}" class="post">
+            <img src="${post.post}" class="post" data-post="${post.uuid}">
         </section>
     
         <section class="container comment-sec">
