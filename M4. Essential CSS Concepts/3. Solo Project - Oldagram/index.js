@@ -30,11 +30,16 @@ function handleLikeClick(postId){
 
 
 function getFeedHtml(){
-
     
     let feedHtml = ``
 
     posts.forEach(function(post){
+
+        // changes the value of likeIconClass
+        
+        let likeIconClass = ``
+        
+        likeIconClass = post.isLiked ? "liked" : likeIconClass
 
         feedHtml += `    
         <section class="container prof-header">
@@ -53,7 +58,7 @@ function getFeedHtml(){
     
         <section class="container comment-sec">
             <div class="icon-set">
-                <i class="fa-solid fa-heart icon" data-like="${post.uuid}"></i>
+                <i class="fa-solid fa-heart icon ${likeIconClass}" data-like="${post.uuid}"></i>
                 <i class="fa-regular fa-comment icon"></i>
                 <i class="fa-regular fa-paper-plane icon"></i>
             </div>
