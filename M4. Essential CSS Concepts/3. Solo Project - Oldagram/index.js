@@ -1,7 +1,37 @@
 import { posts } from "./data.js"
 
+
+document.addEventListener("click", function(e){
+    if(e.target.dataset.like){
+        handleLikeClick(e.target.dataset.like)
+    }
+})
+
+
+function handleLikeClick(postId){
+   const targetPost = posts.filter(function(post){
+        return postId === post.uuid
+   })[0]
+    
+   if(!targetPost.isLiked){
+    targetPost.likes++
+   }
+   else if(targetPost.isLiked){
+    targetPost.likes--
+   }
+
+   targetPost.isLiked = !targetPost.isLiked
+
+   render()
+}
+
+
+
+
+
 function getFeedHtml(){
 
+    
     let feedHtml = ``
 
     posts.forEach(function(post){
@@ -23,9 +53,9 @@ function getFeedHtml(){
     
         <section class="container comment-sec">
             <div class="icon-set">
-                <img src="images/icon-heart.png" class="icon">
-                <img src="images/icon-comment.png" class="icon">
-                <img src="images/icon-dm.png" class="icon">
+                <i class="fa-solid fa-heart icon" data-like="${post.uuid}"></i>
+                <i class="fa-regular fa-comment icon"></i>
+                <i class="fa-regular fa-paper-plane icon"></i>
             </div>
             <div>
                 <p class="text-bold">${post.likes} likes</p>
@@ -40,6 +70,8 @@ function getFeedHtml(){
     return feedHtml
 }
 
-console.log(getFeedHtml())
+render()
 
-document.getElementById("feed").innerHTML = getFeedHtml();
+function render(){
+    document.getElementById("feed").innerHTML = getFeedHtml();
+}
