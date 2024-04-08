@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat';
+}
+
+
+.container{
+    width: 700px;
+    margin: 0 auto;
+}
+
+nav{
+    background-color: #282828;
+}
+
+ul{
+    color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    padding: 25px;
+    gap: 5px;
+}
+
+li{
+    cursor: pointer;
+}
+
+.logo{
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.icon, .burger{
+    width: 35px;
+}
+
+.align-right{
+    margin-left: auto;
+}
+
+h1{
+    font-size: 70px;
+    font-weight: 400;
+    margin: 25px 0px;
+}
+
+.item-img{
+    width: 100%;
+    display: block;
+ 
+      
+}
+ 
+.caption{
+    font-size: 20px;
+    margin: 0px 25px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.item{
+    position: relative;
+}
+
+.img-banner {
+        text-align: center;
+        background-color: #cd6858;
+        color: whitesmoke;
+        padding: 10px;
+        position: absolute;
+        top: 0;
+        font-size: 30px;
+    }
+
+button {
+    border: none;
+    background-color: #cd6858;
+    color: whitesmoke;
+    padding: 10px 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+    

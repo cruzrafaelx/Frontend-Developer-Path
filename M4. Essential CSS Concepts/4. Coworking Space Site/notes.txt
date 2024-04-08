@@ -1,0 +1,42 @@
+1. remove bullet points from <ul>
+
+ul{
+ list-style-type: none;
+}
+
+2. gap
+
+puts a gap between flex elements
+
+gap: 5px;
+
+3. li{
+    cursor: pointer;
+}
+
+
+4. margin: auto; on flex children.  
+
+margin: auto 0 0 auto;
+
+This puts the flex child to the bottom right of the flex parent.
+
+5. role="img" & aria-label=""
+- if you do not have an <img> tag and have an image as a background, you can use the role: attribute to the container where the image background is, togethere with the aria-label attribute to describe the photo being shown.
+
+6. CSS Position Property: relative & absolute
+
+A. Position Absolute: positioning elements on top of everything else. It does not recognize containers. So setting Top: 0 and Left: 0, will put the element on top left of the window and not the container.
+
+But, if we want to have the absolutely positioned element, we need to se the psoition of the parent element to relative. 
+
+7. Whitespace below images
+
+- In this case you can use the following solution:
+
+img {
+  display: block;
+  vertical-align: bottom; /* or middle, or top */
+}
+
+The reason why images have a whitespace below them are because they are inline-elements. This was made for letters like y, or g so they dont overlap other letters below them.
