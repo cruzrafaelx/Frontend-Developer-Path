@@ -35,31 +35,32 @@
         </main>
 
         <!-- Order Overview -->
-        <section class="order-view " id="order-view">
+        <section class="order-view invisible" id="order-view">
 
             <section class="your-order">
                 <h1>Your Order</h1>
             </section>
-            
-            
-            <section class="order-line flex">
-                <section class="flex order-line-left">
-                    <h3 class="food-name">Pizza</h3>
-                    <button class="rmv-btn">remove</button>
-                </section>
-                <section class="order-line-right">
-                    <p>$14</p> 
-                </section>   
+
+            <section id="order-section">
+                <!-- <section class="order-line flex">
+                    <section class="flex order-line-left">
+                        <h3 class="food-name">Pizza</h3>
+                        <button class="rmv-btn">remove</button>
+                    </section>
+                    <section class="order-line-right">
+                        <p>$13</p> 
+                    </section>   
+                </section>  -->
             </section>
 
             <section class="flex price-summary">
                 <h3>Total price: </h3>
-                <p>$14</p>
-            </section>
-            
+                <p id="total-price"></p>
+            </section> 
+
             <section class="order-btn">
                 <button id="order-btn">Complete Order</button>
-            </section>
+            </section> 
 
         </section>
 
