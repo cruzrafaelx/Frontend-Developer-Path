@@ -1,0 +1,28 @@
+1. Targetting a button of a specific element
+
+a. Include a data attribute to the corresponding button or CDN(content delivery network) and give the a value of the ID or UUID of the element.
+
+ <button class="add-btn" data-add="${item.id}">+</button>
+
+
+
+b. Create an addEventListener for the target button or CDN. You can consoleLog the value of (e.target.dataset) to see if the correct value is appearing.
+
+document.addEventListener("click", function(e) {
+
+    if(e.target.dataset.add){
+        handleAddButton(e.target.dataset.add)
+    }
+
+})
+
+
+c. Create a function that would handle the action done to the button or CDN. In this function, the first step should be to find out whose button or CDN has been clicked! Use a filter method in this case to compare the ID value of the data attribute to the ID values of the elements of the array.
+
+function handleAddButton(n){
+      
+        let food = menuArray.filter(item => {
+          return item.id == n
+    })[0]
+
+}

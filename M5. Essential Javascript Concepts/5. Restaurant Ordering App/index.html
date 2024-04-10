@@ -14,34 +14,59 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
+        <!-- Google Fonts: Roboto -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        
+
     </head>
     <body class="container border">
 
+        <!-- Hero -->
         <header class="hero">
             <h1>Jimmy's Diner</h1>
             <h2>The best burgers and pizzas in town.</h2>
         </header>
+
+        <!-- Menu List -->
         <main id="feed">
-            <!-- <section class="flex sub-container ">
-
-                <section class="first-sec">
-                    <p class="food-item">🍕</p>
-                </section>
-
-                <section class="second-sec">
-                    <section class="food-item-desc">
-                        <h3 class="food-name">Pizza</h3>
-                        <p class="ingredients">pepperoni, mushroom, mozarella</p>
-                        <p class="price">€14,00</p>
-                    </section>
-                
-                    <button class="add-btn">+</button>
-                </section>
-            </section> -->
-            
+           
         </main>
 
+        <!-- Order Overview -->
+        <section class="order-view " id="order-view">
+
+            <section class="your-order">
+                <h1>Your Order</h1>
+            </section>
+            
+            
+            <section class="order-line flex">
+                <section class="flex order-line-left">
+                    <h3 class="food-name">Pizza</h3>
+                    <button class="rmv-btn">remove</button>
+                </section>
+                <section class="order-line-right">
+                    <p>$14</p> 
+                </section>   
+            </section>
+
+            <section class="flex price-summary">
+                <h3>Total price: </h3>
+                <p>$14</p>
+            </section>
+            
+            <section class="order-btn">
+                <button id="order-btn">Complete Order</button>
+            </section>
+
+        </section>
+
 	    <script src="index.js" type="module"></script>
+
+
+
 
     </body>
 </html>

@@ -4,24 +4,6 @@ body{
     font-family: 'Smythe';
 } 
 
-.container{
-    width: 700px;
-    margin: 0 auto;
-    padding: 0;
-
-}
-
-.sub-container{
-    margin: 40px;
-    padding-bottom: 25px;
-    border-bottom: 1px solid #D2D2D2;
-    
-}
-
-.border{
-    border: 1px solid black;
-}
-
 .hero{
     background-image: url("images/Restaurant.jpeg");
     background-size: cover;
@@ -32,6 +14,7 @@ body{
 .hero h1, h2{
     color: whitesmoke;
 }
+
 
 h1{
     display: inline-block;
@@ -86,6 +69,7 @@ h2{
     font-family: 'Inter';
     font-size: 40px;
     font-weight: 200;
+    cursor: pointer;
 }
 
 
@@ -98,8 +82,109 @@ h2{
     padding-left: 20px;
 }
 
+
+
+
+
+/* Order Overview */
+
+.order-view {
+    margin-top: 20px;
+    padding-bottom: 25px;
+    
+}
+
+.your-order{
+    text-align: center;
+}
+
+.your-order h1{
+    display: inline;
+}
+
+
+.order-line{
+    justify-content: space-between;
+    align-content: center;
+    padding-bottom: 10px;
+    border-bottom: none;
+    margin: 20px 40px 0px 40px;
+    padding-bottom: 25px;
+
+}
+
+.order-line-left h3{
+    margin-top: 0;
+    margin-right: 20px;
+}
+
+.rmv-btn{
+    background-color: white;
+    height: 50px;
+    width: 50px;
+    border: none;
+    cursor: pointer;
+    padding-top: 10px;
+    color: #8B8B8B;
+}
+
+.price-summary{
+    margin: 20px 40px 0px 40px;
+    justify-content: space-between;
+    border-top: 1px solid #D2D2D2;;
+}
+
+.order-line button{
+    justify-content: center;
+}
+
+.order-btn{
+    text-align: center;
+    padding-top: 15px;
+}
+
+#order-btn{
+    font-family: 'Roboto';
+    background-color: #16DB99;
+    color: whitesmoke;
+    font-weight: 500;
+    border: none;
+    padding: 20px 0;
+    width: 90%;
+    cursor: pointer;
+
+}
+
+
+
+
+
+
+
+
 /* Utilities */
 
 .flex{
     display: flex;
+}
+
+.container{
+    width: 700px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.sub-container{
+    margin: 30px 40px 0px 40px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #D2D2D2;  
+}
+
+
+.border{
+    border: 1px solid #D2D2D2;
+}
+
+.invisible{
+    display: none;
 }
