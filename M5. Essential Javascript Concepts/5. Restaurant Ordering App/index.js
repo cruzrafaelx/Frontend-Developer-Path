@@ -2,16 +2,34 @@ import { menuArray } from "./data.js";
 
 const orderView = document.getElementById("order-view")
 
-
 let orderList = []
 
-document.addEventListener("click", function(e) {
+document.addEventListener("click", e => {
 
     if(e.target.dataset.add){
         handleAddButton(e.target.dataset.add)
     }
 
 })
+
+document.addEventListener("click", e => {
+
+    if(e.target.dataset.remove){
+        handleRemoveButton()
+    }
+})
+
+
+
+function handleRemoveButton(){
+    
+    orderList.pop()
+    renderOrders()
+
+    if(orderList.length == 0){
+        orderView.classList.add("invisible")
+    }
+}
 
 function handleAddButton(n){
       
@@ -32,9 +50,6 @@ function handleAddButton(n){
 
 
 
-let htmlFeed = ``
-
-
 function getOrders(){
     
     let htmlOrders = ``
@@ -46,7 +61,7 @@ function getOrders(){
         <section class="order-line flex">
                 <section class="flex order-line-left">
                     <h3 class="food-name">${food.name}</h3>
-                    <button class="rmv-btn">remove</button>
+                    <button class="rmv-btn" data-remove="${food.id}">remove</button>
                 </section>
             <section class="order-line-right">
                 <p>${food.price}</p> 
@@ -59,6 +74,8 @@ function getOrders(){
    return [htmlOrders, sumPrice]
 }
 
+
+let htmlFeed = ``
 
 
  function getFeedHtml(){
