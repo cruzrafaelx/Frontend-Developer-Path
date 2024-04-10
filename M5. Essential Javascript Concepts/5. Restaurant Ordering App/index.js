@@ -2,6 +2,7 @@ import { menuArray } from "./data.js";
 
 const orderView = document.getElementById("order-view")
 
+
 let orderList = []
 
 document.addEventListener("click", function(e) {
@@ -37,8 +38,10 @@ let htmlFeed = ``
 function getOrders(){
     
     let htmlOrders = ``
+    let sumPrice = 0
 
     orderList.forEach(food =>{
+
         htmlOrders += `
         <section class="order-line flex">
                 <section class="flex order-line-left">
@@ -50,9 +53,10 @@ function getOrders(){
             </section>   
         </section>
         `
+       sumPrice += food.price
     })
 
-   return htmlOrders
+   return [htmlOrders, sumPrice]
 }
 
 
@@ -86,7 +90,9 @@ function getOrders(){
 
 
 function renderOrders(){
-    document.getElementById("order-section").innerHTML = getOrders()
+    const result = getOrders()
+    document.getElementById("order-section").innerHTML = result[0]
+    document.getElementById("total-price").innerHTML = result[1]
 }
 
  function render(){

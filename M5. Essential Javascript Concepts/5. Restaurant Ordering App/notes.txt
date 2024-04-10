@@ -26,3 +26,14 @@ function handleAddButton(n){
     })[0]
 
 }
+
+
+Lesson: Return 2 values to a function
+
+function getOrders(){
+      return [htmlOrders, sumPrice]
+}
+
+    const result = getOrders()
+    document.getElementById("order-section").innerHTML = result[0]
+    document.getElementById("total-price").innerHTML = result[1]
