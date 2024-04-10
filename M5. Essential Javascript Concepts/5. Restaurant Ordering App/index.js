@@ -1,44 +1,41 @@
 import { menuArray } from "./data.js";
+import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 
 const orderView = document.getElementById("order-view")
 
 let orderList = []
 
+//Event Listeners
+
 document.addEventListener("click", e => {
 
     if(e.target.dataset.add){
-        handleAddButton(e.target.dataset.add)
+        handleAddButton(parseInt(e.target.dataset.add))
     }
 
 })
 
 document.addEventListener("click", e => {
 
+    //Use parseInt to convert the value of dataset to an integer. 
     if(e.target.dataset.remove){
-        handleRemoveButton()
+        handleRemoveButton(e.target.dataset.remove)
     }
 })
 
-
-
-function handleRemoveButton(){
-    
-    orderList.pop()
-    renderOrders()
-
-    if(orderList.length == 0){
-        orderView.classList.add("invisible")
-    }
-}
-
+//Handle Add Button
 function handleAddButton(n){
       
         let food = menuArray.filter(item => {
           return item.id == n
     })[0]
 
-    orderList.push(food)
-    console.log(orderList)
+    //through {...Spread Operator}, the orderList will be a shallow copy of the menuArray
+    //This ensures that changes done to the orderList will not be reflected to the menuArray
+
+    orderList.push({...food})
+    let lastIndex = orderList.length - 1
+    orderList[lastIndex].id = uuidv4()
 
     if(orderList.length >= 1){
         orderView.classList.remove("invisible")
@@ -47,7 +44,25 @@ function handleAddButton(n){
     renderOrders()
 }
 
+//Handle Remove Button
+function handleRemoveButton(n){
+    
+    const targetButton = orderList.find(order => order.id === n)
 
+    const index = orderList.indexOf(targetButton)
+
+    orderList.splice(index, 1)
+
+    renderOrders()
+    removeOrderView()
+   
+}
+
+function removeOrderView(){
+    if(orderList.length == 0){
+        orderView.classList.add("invisible")
+    }
+}
 
 
 function getOrders(){
@@ -103,7 +118,6 @@ let htmlFeed = ``
       })
       return htmlFeed
  }
-
 
 
 function renderOrders(){
