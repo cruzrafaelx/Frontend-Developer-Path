@@ -28,11 +28,14 @@ document.addEventListener("click", e => {
 //complete order button listener
 document.getElementById("order-btn").addEventListener("click", (e) =>{
     document.querySelector(".form-container").classList.remove("invisible")
+    document.getElementById("feed").classList.add("invisible")
 })
 
 //pay button listener
-document.getElementById("form").addEventListener("submit", (e) => {
-   
+document.getElementById("form").addEventListener("submit", function(event){
+    
+    event.preventDefault()
+
     const cardNum = document.getElementById("card-num").value
     const cvvNum = document.getElementById("cvv-num").value
      
@@ -46,10 +49,14 @@ document.getElementById("form").addEventListener("submit", (e) => {
         return; // exit function to prevent further execution
     }
 
-    document.getElementById("form").submit() //if validation passes, submits form
-    e.preventDefault()
+    document.querySelector(".form-container").classList.add("invisible")
+    document.querySelector(".thank-you").classList.remove("invisible")
+    document.querySelector(".order-view").classList.add("invisible")
 
+    // document.getElementById("form").submit() //if validation passes, submits form
     
+
+
 })
 
 
