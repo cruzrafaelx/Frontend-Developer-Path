@@ -49,3 +49,8 @@ p {
     font-size: 13px;
     margin: 5px 0 5px 0;
 }
+
+.forms{
+    display: flex;
+    flex-direction: column;
+}

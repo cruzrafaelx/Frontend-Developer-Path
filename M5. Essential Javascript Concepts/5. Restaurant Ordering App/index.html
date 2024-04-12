@@ -22,7 +22,6 @@
 
     </head>
     <body class="container border">
-
         <!-- Hero -->
         <header class="hero">
             <h1>Jimmy's Diner</h1>
@@ -55,13 +54,42 @@
 
             <section class="flex price-summary">
                 <h3>Total price: </h3>
-                <p id="total-price">€</p>
+                <p id="total-price"></p>
             </section> 
 
             <section class="order-btn">
                 <button id="order-btn">Complete Order</button>
             </section> 
 
+        </section>
+        
+        <!-- Payment Section -->
+        <section class="form-container invisible">
+            <form class="form border">
+                <h3>Enter card details</h3>
+
+                <input 
+                required 
+                type="text" 
+                placeholder="Enter your name" 
+                minlength="2" 
+                maxlength="20"
+                >
+
+                <input 
+                required 
+                type="number" 
+                placeholder="Enter your card number"
+                >
+
+                <input 
+                required 
+                type="number" 
+                placeholder="Enter CVV"
+                >
+
+                <button type="submit" id="pay-btn">Pay</button>
+            </form>
         </section>
 
 	    <script src="index.js" type="module"></script>

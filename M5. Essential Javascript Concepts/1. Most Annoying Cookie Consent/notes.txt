@@ -65,6 +65,33 @@ revealBtn.addEventListener('click', function(){
 <label for="astronautName">How old are you?</label>
 </form>
 
+Input Types:
+
+Text: <input type="text"> - Allows users to input single-line text.
+
+Password: <input type="password"> - Conceals the characters typed (useful for sensitive information like passwords).
+
+Email: <input type="email"> - Requires input to be formatted as an email address.
+
+Number: <input type="number"> - Restricts input to numerical values.
+
+Date: <input type="date"> - Provides a date picker for selecting dates.
+
+Time: <input type="time"> - Allows users to input a time.
+
+Checkbox: <input type="checkbox"> - Allows users to select one or more options from a list.
+
+Radio Button: <input type="radio"> - Allows users to select one option from a list.
+
+File: <input type="file"> - Allows users to upload files from their device.
+
+Submit Button: <input type="submit"> - Submits the form data to a server.
+
+Reset Button: <input type="reset"> - Resets the form to its initial state.
+
+Hidden: <input type="hidden"> - Hides input from users but still submits data when the form is submitted.
+
+
 Validation attributes:
 
 minlength="2"
@@ -76,6 +103,8 @@ pattern="[a-zA-Z0-9]+" this is called regex
 const countryCodePattern = "[a-zA-Z]{3}";
 [a-zA-Z]: Matches any uppercase or lowercase letter.
 {3}: Specifies that exactly three letters are required.
+
+you can use regex.test() to validate inputs using regex
 
 Types of buttons:
 1. submit

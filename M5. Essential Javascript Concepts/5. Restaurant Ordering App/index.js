@@ -7,6 +7,7 @@ let orderList = []
 
 //Event Listeners
 
+//add button listener
 document.addEventListener("click", e => {
 
     if(e.target.dataset.add){
@@ -15,6 +16,7 @@ document.addEventListener("click", e => {
 
 })
 
+//remove button listener
 document.addEventListener("click", e => {
 
     //Use parseInt to convert the value of dataset to an integer. 
@@ -22,6 +24,14 @@ document.addEventListener("click", e => {
         handleRemoveButton(e.target.dataset.remove)
     }
 })
+
+//complete order button listener
+document.getElementById("order-btn").addEventListener("click", (e) =>{
+    document.querySelector(".form-container").classList.remove("invisible")
+})
+
+//pay button listener
+
 
 //Handle Add Button
 function handleAddButton(n){
@@ -79,7 +89,7 @@ function getOrders(){
                     <button class="rmv-btn" data-remove="${food.id}">remove</button>
                 </section>
             <section class="order-line-right">
-                <p>${food.price}</p> 
+                <p>€${food.price}</p> 
             </section>   
         </section>
         `
@@ -123,7 +133,7 @@ let htmlFeed = ``
 function renderOrders(){
     const result = getOrders()
     document.getElementById("order-section").innerHTML = result[0]
-    document.getElementById("total-price").innerHTML = result[1]
+    document.getElementById("total-price").innerHTML =`€${result[1]}` 
 }
 
  function render(){
