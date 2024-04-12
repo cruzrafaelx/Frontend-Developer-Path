@@ -31,6 +31,28 @@ document.getElementById("order-btn").addEventListener("click", (e) =>{
 })
 
 //pay button listener
+document.getElementById("form").addEventListener("submit", (e) => {
+   
+    const cardNum = document.getElementById("card-num").value
+    const cvvNum = document.getElementById("cvv-num").value
+     
+    if(cardNum.length < 13 || cardNum.length > 20){
+        alert("Please enter a valid card number!")
+        return; // exit function to prevent further execution
+    }
+
+    if(cvvNum.length !== 3){
+        alert("Please enter a valid CVV number!")
+        return; // exit function to prevent further execution
+    }
+
+    document.getElementById("form").submit() //if validation passes, submits form
+    e.preventDefault()
+
+    
+})
+
+
 
 
 //Handle Add Button

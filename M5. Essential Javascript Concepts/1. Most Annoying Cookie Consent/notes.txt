@@ -111,7 +111,12 @@ Types of buttons:
 2. reset
 3. button
 
+Number Input Length Restriction
 
+   document.getElementById("numberInput").addEventListener("input", function() {
+            var maxLength = 5; // Maximum number of digits allowed
+            if (this.value.length > maxLength) {
+                this.value = this.value.slice(0, maxLength); // Truncate input if it exceeds maxLength
 
 
 4. formData & .get()

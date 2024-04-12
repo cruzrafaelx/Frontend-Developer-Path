@@ -65,12 +65,14 @@
         
         <!-- Payment Section -->
         <section class="form-container invisible">
-            <form class="form border">
+            <form class="form border" id="form">
                 <h3>Enter card details</h3>
 
                 <input 
                 required 
                 type="text" 
+                id="userName"
+                name="userName"
                 placeholder="Enter your name" 
                 minlength="2" 
                 maxlength="20"
@@ -79,12 +81,16 @@
                 <input 
                 required 
                 type="number" 
+                id="card-num"
+                name="card-num"
                 placeholder="Enter your card number"
                 >
 
                 <input 
                 required 
                 type="number" 
+                id="cvv-num"
+                name="cvv-num"
                 placeholder="Enter CVV"
                 >
 
