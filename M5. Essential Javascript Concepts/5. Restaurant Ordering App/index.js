@@ -36,6 +36,7 @@ document.getElementById("form").addEventListener("submit", function(event){
     
     event.preventDefault()
 
+    const name = document.getElementById("user-name").value
     const cardNum = document.getElementById("card-num").value
     const cvvNum = document.getElementById("cvv-num").value
      
@@ -49,18 +50,14 @@ document.getElementById("form").addEventListener("submit", function(event){
         return; // exit function to prevent further execution
     }
 
+    console.log(name)
     document.querySelector(".form-container").classList.add("invisible")
-    document.querySelector(".thank-you").classList.remove("invisible")
+    document.querySelector(".thanks").classList.remove("invisible")
+    document.querySelector(".thanks-txt").innerHTML = `Thank you for ordering, ${name}!`
     document.querySelector(".order-view").classList.add("invisible")
 
     // document.getElementById("form").submit() //if validation passes, submits form
-    
-
-
 })
-
-
-
 
 //Handle Add Button
 function handleAddButton(n){

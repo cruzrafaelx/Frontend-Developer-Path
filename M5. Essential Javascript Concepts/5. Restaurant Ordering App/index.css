@@ -1,3 +1,7 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -86,8 +90,6 @@ h2{
 
 
 
-
-
 /* Order Overview */
 
 .order-view {
@@ -156,8 +158,6 @@ h2{
     cursor: pointer;
   }
 
-
-
 .form{
     position: absolute;
     background-color: white;
@@ -199,10 +199,24 @@ h2{
    
 }
 
+.thanks{
+    margin: 1em 2.7em;
+    padding: 0.3em ;
+    background-color: #ECFDF5;
+}
 
-
-.thank-you{
+.thanks-txt,
+.thanks-sub-txt{
     text-align: center;
+    display: block;
+    margin: 0 auto 0.3em;
+    width: 80%;
+    color: #065F46;
+    
+}
+
+.thanks-sub-txt{
+    font-size: 1.5rem;
 }
 
 /* Utilities */
