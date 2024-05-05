@@ -1,0 +1,85 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+    padding: 1.5em;
+    height: 100vh;
+    background-color: #AADFC5;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+}
+
+header a{
+    font-size: 1.5rem;
+}
+.menu{
+    
+    margin-left: auto;
+}
+
+header svg{
+    cursor: pointer;
+    width: 2rem;
+}
+
+nav{
+    text-align: right;    
+}
+
+nav ul{
+    /* display: none; */
+    margin-top: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 20%;
+    background-color: #47946E;
+    height: 100vh;
+    list-style-type: none;
+    padding: 1.5em;
+    transform: translateX(100%);
+    transition: all .3s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.open-nav{
+    visibility: unset;
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+nav ul li{
+    margin-bottom: 1em;
+}
+
+img{
+    width: 100px;
+}
+
+/*
+- White Space
+- Color 
+- Contrast 
+- Scale
+- Alignment
+- Typography
+- Visual Hierarchy
+
+*/
