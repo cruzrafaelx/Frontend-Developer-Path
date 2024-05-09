@@ -1,0 +1,42 @@
+1. Whitespace
+
+- padding and margin: em;
+- leading (whitespace between text lines) line-height: em;
+- do check the white spaces on top and bottom of elements. Make it equal. For example in containers, make sure white spaces in all corners are equal.
+- letter-spacing: 0.7em;
+
+2. Alignment
+
+- process of ensuring that every element is positioned correctly in relation to other elements.
+- each element in a UI defines a series of rows and columns
+
+3. Contrast
+
+- strikingly different state from something else. It is true for every element that has a background. 
+- WCAG 2.0 (web content accesibility guidelines)
+- Minimum AA - visual presentation of text and images of text has a contrast ratio of at leaset 4.5:1, except for large text which should have a contrast ratio of at least 3:1.
+- Enhanced AAA - visual presentation of text and images of text has a contrast ratio of at leaset 7:1, except for large text which should have a contrast ratio of at least 4.5:1.
+- Use contrast checking tools!
+
+4. Scale
+- Size of every UI Element must be considered!
+
+5. Typography
+- Font choices: use up to 2 font families.
+- Visual hierarchy
+- Font Size
+- Alignment
+- Letter spacing & line height
+- Font styles (weight, italic)
+- Color & contrast
+
+6. Color
+
+7. Visual Hierarchy
+- Every element on a user interface has a level of importance. 
+- Visual hierarchy is how we establish different level of importance. 
+- Use  whitespace, alignment, contrast, color, scale to establish visual hierarchy.
+- Use darker shade for less important texts, like p 
+- You can also use a darker shade of the background for containers lying on the background.  
+
+

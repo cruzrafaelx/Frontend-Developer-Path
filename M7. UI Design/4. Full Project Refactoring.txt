@@ -1,0 +1,227 @@
+1. Labels should be smaller than the value. 
+2. You can left align some items on large phones and use flex wrap. 
+
+@media (min-width: 420px) {
+    body {
+        padding: 1em;
+        text-align: left;
+    }
+    ul.data {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    ul.data li {
+        flex: 0 0 50%;
+    }
+}
+
+In the case of flex: 0 0 50%;, it means:
+
+flex-grow: 0 (the flex item won't grow)
+flex-shrink: 0 (the flex item won't shrink)
+flex-basis: 50% (the initial size of the flex item is 50% of the container's size)
+
+
+
+/* Large Phones */
+
+@media (min-width: 420px) {
+    body {
+        padding: 1em;
+        text-align: left;
+    }
+    ul.data {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    ul.data li {
+        flex: 0 0 50%;
+    }
+}
+
+@media (min-width: 550px) {
+    ul.data {
+        justify-content: center;
+    }
+    .panel ul.data li {
+        flex: 0 0 33%;
+    }
+    .panel ul.data li p {
+        margin-bottom: 0;
+    }
+    nav {
+        width: 40%;
+    }
+}
+
+@media (min-width: 720px) {
+    body {
+        padding: 1.5em;
+    }
+    .columns {
+        display: flex;
+    }
+    .col {
+        flex: 0 0 48%;
+    }
+    .secondary {
+        margin-left: 3em;
+    }
+    ul.secondary {
+        margin-top: 0;
+    }
+    nav {
+        width: 30%;
+    }
+    
+}
+
+@media (min-width: 850px) {
+    body {
+        display: grid;
+        grid-template-columns: 200px auto;
+        grid-template-rows: 70px auto;
+        grid-template-areas:
+            "sidebar header"
+            "sidebar main";
+        padding: 0;
+    }
+    
+    header, main {
+        padding: 1.5em;
+    }
+    
+    nav {
+        grid-area: sidebar;
+        opacity: 1;
+        visibility: unset;
+        transform: translateX(0);
+        width: 100%;
+        position: unset;
+        
+    }
+    
+    header {
+        grid-area: header;
+    }
+    
+    main {
+        grid-area: main;
+    }
+    
+    a.logo {
+        margin: 0;
+    }
+    svg {
+        display: none;
+    }
+}
+
+
+Responsive HTML Structure:
+
+1. Responsive navigation:
+
+HTML:
+
+<nav id="nav">
+            <div class="inner-wrapper">
+
+                This is the close button
+
+                <svg viewBox="0 0 32 37" id="exit-btn">
+                    <path id="back" d="M15.9,4.492a3,3,0,0,1,5.194,0L34.4,27.5A3,3,0,0,1,31.8,32H5.2a3,3,0,0,1-2.6-4.5Z" transform="translate(0 37) rotate(-90)" fill="#fff"/>
+                </svg>
+                
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod</p>
+            </div>
+            <ul>
+                <li class="selected"><a href="#">Dashboard</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Reset Access</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+CSS:
+
+nav {
+    position: fixed;
+    background: #576483;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    width: 80%;
+    visibility: unset; (hidden)
+    transform: translatex(-50%);
+    opacity: 1;
+    transition: all .3s;
+    text-align: center;
+}
+
+Add this class list to open the nav:
+
+.open-nav {
+    visibility: unset;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+
+2. Header
+
+HTML:
+
+<header>
+        Burger menu:
+
+        <svg height="32px" id="menu-btn" class="open" viewBox="0 0 32 32">
+            <path fill="white" d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+        </svg>
+        
+        <a href="#" class="logo">Company</a>
+        
+        <a href="#" class="cta-btn">Dashboard</a>
+</header>
+
+CSS:
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header svg {
+    width: 1.5em;
+    cursor: pointer;
+}
+
+a {
+    color: white;
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a.logo {
+    font-weight: bold;
+    margin: 0 1em;
+}
+
+a.cta-btn {
+    margin-left: auto;
+    background: #FC85AE;
+    padding: 1em;
+    display: inline-block;
+    border-radius: 2em;
+    font-size: .6em;
+    color: #303A52;
+    font-weight: bold;
+}

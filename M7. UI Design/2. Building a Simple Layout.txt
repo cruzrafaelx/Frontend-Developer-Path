@@ -1,0 +1,20 @@
+1. Dark Layout
+- never use black, use #1c1c1c for example;
+
+!!!Put a line behind the text:
+
+span {
+    position: relative;
+}
+
+span:before {
+    position: absolute;
+    content: '';
+    height: .2em;
+    width: 80%;
+    bottom: .1em;
+    z-index: -1;
+    background: #71AE21; 
+}
+
+!!! place-content: center; for grid items

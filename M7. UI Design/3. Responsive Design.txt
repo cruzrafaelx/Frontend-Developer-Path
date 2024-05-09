@@ -1,0 +1,110 @@
+1. If you only have 1 or 2 links on your nav, dont use the hamburger. It will cost your user 1 click more.
+
+Defining the HTML:
+
+<body>
+
+      
+        <header class="wrapper">
+            <a href="#" class="logo">tastybites</a>
+            <nav>
+                <ul>
+                    <li><a href="#">home</a></li>
+                    <li><a href="#">about</a></li>
+                    <li><a href="#">contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div class="hero-left wrapper">
+            <h1>Absolutely Tasty Bites</h1> --- Headline
+            <p>Get all of the best food without tasting their nastiness</p> -- Subheadling
+            <a href="#" class="cta-btn">Download app</a> --- Call to action
+        </div>
+
+        <img src="healthfood.jpg">
+        
+        <section class="wrapper">
+            <ul class="testimonials">
+                <li> --- testimonial 1
+                    <blockquote>
+                        <p>"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor"</p>
+                        <footer>- John Doe</footer>
+                    </blockquote>
+                </li>
+
+                <li>--- testimonial 2
+                    <blockquote>
+                        <p>"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor"</p>
+                        <footer>- John Doe</footer>
+                    </blockquote>
+                </li>
+
+                <li>--- testimonial 3
+                    <blockquote>
+                        <p>"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor"</p>
+                        <footer>- John Doe</footer>
+                    </blockquote>
+                </li>
+            </ul>
+        </section>
+
+
+2. :nth-of-type(3)
+- target a child element of a parent
+
+3. clip-path: to cut off images according to your liking!
+
+4. At around 1000px you can think of a 2 column layout. 
+
+5. Make a wrapper class in all of the containers and use padding on its sides.
+
+6. With a, youre goann have to change the display to block if you want to put paddings and margins. 
+
+7. Get any element with 1 function:
+
+const get = element => document.getElementById(element);
+
+let open = get("menu-btn");
+let nav = get("nav");
+let exit = get("exit-btn");
+
+open.addEventListener('click', () => {
+    nav.classList.add('open-nav');
+})
+
+exit.addEventListener('click', () => {
+    nav.classList.remove('open-nav');
+})
+
+
+8. Nav bar animation using transform: translateX
+
+nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    background: #1D2226;
+    width: 66%;
+    visibility: hidden;
+    transform: translateX(50%);
+    opacity: 0;
+    transition: all .3s;
+}
+
+
+The translate X moves your element anywhere in the x-axis depending on where you want it. 
+
+
+@media (min-width: 500px) {
+  
+    nav {
+        visibility: unset;
+        background: none;
+        position: unset;
+        height: auto;
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

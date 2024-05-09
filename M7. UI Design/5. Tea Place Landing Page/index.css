@@ -228,6 +228,18 @@ img{
 
 }
 
+@media (min-width: 1100px){
+     img{
+        width: 1000px;   
+    }
+
+    .fern{
+        height: 80vh;
+        
+    }
+
+}
+
 
 /*
 - White Space
