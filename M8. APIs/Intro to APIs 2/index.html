@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>BlogSpace</title>
+      <link rel="stylesheet" href="index.css">
+
+      <!-- Google Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+      <nav>
+            <h1>blogSpace</h1>
+            <p>by Rafael</p>
+      </nav>
+
+      <main class="container">
+            <section id="form-container">
+                  <form>
+                        <label class="flex-item" for="post-title">Post title</label>
+                        <input
+                        class="flex-item"
+                        type="text"
+                        name="post-title"
+                        id="post-title"
+                        minlength="2"
+                        placeholder="This is a new blog"
+                        >
+
+                        <label class="flex-item" for="post-body">Post body</label>
+                        <textarea class="flex-item" name="post-body" id="post-body"
+                         placeholder="What do you want to write about today?"></textarea>
+
+                        <input class="flex-item" id="submit-btn" type="submit" value="submit">
+                  </form>
+            </section>
+
+            <section  id="post-container">
+
+            </section>
+      </main>
+      
+      <script src="index.js"></script>
+</body>
+</html>

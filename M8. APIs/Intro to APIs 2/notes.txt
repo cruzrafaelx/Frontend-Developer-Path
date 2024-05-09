@@ -1,0 +1,36 @@
+1. HTTP request
+2. Components of a request
+
+
+
+
+1. HTTP request
+Hypertext Transfer Protocol
+
+A protocol is an agreed-upon standard way of doing something
+
+2. Components of a requests
+
+A. Path (URL)
+-Address where your desired resource lives
+-BaseURL vs Endpoint
+
+B. Method - GET POST PUT DELETE / PATCH OPTIONS etc.
+- Tells the server what intention you have with a request.
+- GET - get data
+- POST - send data -l like blog Post or facebook Post
+- PUT - update an existing data 
+- DELETE - Removing data
+
+You can add a method by adding a second "Object" parameter to the fetch method
+
+fetch('https://apis.scrimba.com/jsonplaceholder/todos', {method: 'GET'})
+    .then(response => response.json())
+    .then(data => console.log(data))
+
+
+
+C. Body
+D. Headers
+
+

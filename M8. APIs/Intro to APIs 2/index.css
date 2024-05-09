@@ -1,0 +1,121 @@
+body, html{
+      padding: 0;
+      margin: 0;
+      font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+body{
+      height: 100vh;
+}
+
+nav{
+      position: fixed;
+      background-color: rgb(61, 85, 204);
+      color: whitesmoke;
+      display: flex;
+      align-items: center;
+      height: 80px;
+      padding: 0 4rem;
+      margin-bottom: 4rem;
+      width: 100%;
+}
+
+nav h1{
+      display: inline-block;
+      border: 3px solid whitesmoke;
+      padding: 0.5rem 1rem;
+      
+}
+
+nav p{
+      margin-top: 3rem;
+      margin-left: 0.5rem;
+}
+
+.container{
+      padding:  6rem 4rem;
+
+ }
+
+.card{
+      margin: 1rem 1.5rem 1.5rem 0;
+      padding: 1rem;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      color: #141a33;
+      border-radius: 0.3rem;
+}
+
+form{
+      display: flex;
+      flex-direction: column;
+}
+
+.flex-item{
+      align-self: flex-start;
+}
+
+
+#post-title, textarea{
+      width: 80%;
+      font-family: inherit;
+      text-align: left;
+      border: 1px solid #878ca8;
+}
+
+#post-title{
+      height: 2rem;
+}
+
+label, #submit-btn{
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+}
+
+label{
+      font-size: 1.2rem;
+      font-weight: 600;
+}
+
+#submit-btn{
+      background-color: rgb(61, 85, 204);
+      border: none;
+      color: whitesmoke;
+      padding: 0.7rem 2rem;
+      border-radius: 0.3rem;
+      text-transform: capitalize;
+      font-weight: 600;
+      cursor: pointer;
+}
+
+
+@media(min-width: 600px){
+      .container{
+           padding:  6rem 4rem;
+
+      }
+
+      #post-title, textarea{
+            width: 40%;
+      }
+      
+
+      .card{
+            margin: 1rem 1.5rem 1.5rem 0;
+      }
+}
+
+@media(min-width: 1000px){
+      .container{
+            padding: 6rem 6rem;
+ 
+       }
+ 
+       .card{
+             margin: 1rem 1.5rem 1.5rem 0;
+       }
+
+       nav{
+            padding: 0 6rem;
+       }
+
+}
