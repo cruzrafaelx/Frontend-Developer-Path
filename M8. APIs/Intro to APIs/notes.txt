@@ -1,0 +1,18 @@
+1. Fetch
+
+Basic fetch syntax:
+
+fetch("https://dog.ceo/api/breeds/image/random")
+    .then(response => response.json())
+    .then(data => console.log(data))
+
+In JavaScript, a fetch request is a modern API for making HTTP requests, typically used to retrieve data from a server or send data to a server from a web application. The fetch API is promise-based, which means it uses promises to handle asynchronous operations, making it easier to work with asynchronous code.
+
+response.json()
+This converts the JSON Data to JS data.
+
+
+accesibility issues 
+- use aria-label on buttons 
+- use aria-live on changing contents
+- use
