@@ -1,0 +1,164 @@
+1. Synchronous JS
+- Each command must complete before the next 
+- No two commands can be running at the same time as each other
+
+2. Asynchronous JS 
+- Code that can round "Out of order"
+- Alows a lengthy operation to start, but finis at a later time without blocking other code from running in the meantime. 
+
+3. function expression & function declaration
+
+A. Function Expression - assigning the actual function to a variable
+
+let myFunction = function(a, b) {
+    console.log(a + b)
+}
+
+let myFunction2 = myFunction
+myFunction2(1, 2)
+
+
+B. Function declaration
+
+function myFunction(a, b) {
+    console.log(a + b)
+}
+
+let myFunction2 = myFunction
+myFunction2(1, 2)
+ 
+
+In this case, the anonymous function in the event listener has been declared or expressed to a separate variable and this variable has been used in place of the anonymouse function as the callback function.
+
+
+document.getElementById("new-deck").addEventListener("click", myFunction)
+
+Function Expression
+
+let myFunction = function() {
+    fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
+        .then(res => res.json())
+        .then(data => console.log(data))
+}
+
+or
+
+Function declaration
+
+function myFunction() {
+    fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
+        .then(res => res.json())
+        .then(data => console.log(data))
+}
+
+Example of more anonymous callback functions moved to its own:
+
+const people = [
+    { name: "Jack", hasPet: true, age: 12 },
+    { name: "Jill", hasPet: false, age: 18 },
+    { name: "Alice", hasPet: true, age: 22 },
+    { name: "Bob", hasPet: false, age: 32 },
+]
+
+function hasPet(person){
+    return person.hasPet === true
+}
+
+const newPeople = people.filter(hasPet)
+
+console.log(newPeople)
+
+
+// Arrow function with implicit return
+
+const theOldPeople = oldPerson => oldPerson.age >= 18
+
+Or
+
+// const theOldPeople = function(oldPerson){
+//     return age >= 18
+// }
+
+Or 
+
+// function theOldPeople(oldPerson){
+//     return age>=18
+// }
+
+const olderPeople = people.filter(theOldPeople)
+
+console.log(olderPeople)
+
+
+
+ * Challenge: 
+ * 
+ * Write your own `filter` function! Don't worry about adding it to the prototype of arrays or anything.
+ * This function should take 2 parameters:
+ * 1. The array you want to filter through, and
+ * 2. A callback function
+ * 
+ * Steps for filterArray function logic:
+ * 1. Initialize a new, empty array which will be returned at the end of the `filterArray`s operations (Completed ✅)
+ * 2. Loop through the array passed as the 1st parameter - for of
+ * 3. Inside the loop, call the callback function, passing the individual item you're currently looping over as the argument to your callback function
+ * 4. If the callback function returns `true`, push the current item you're iterating on in the loop to the new array. If it returns `false`, don't push it to the array.
+ * 5. When the loop is over, return the new array
+ */
+
+const people = [
+    { name: "Jack", hasPet: true },
+    { name: "Jill", hasPet: false },
+    { name: "Alice", hasPet: true },
+    { name: "Bob", hasPet: false },
+]
+
+function filterArray(array, callback) {
+    const resultingArray = []
+   
+   for(let item of array){
+       let trueArray = callback(item)
+          if (trueArray){
+              resultingArray.push(item)
+          }  
+   }
+   return resultingArray
+}
+
+let callbackFunc = function hasPet(person){
+    return person.hasPet
+} 
+ 
+console.log(filterArray(people, callbackFunc))
+
+
+4. Promises
+
+Promise analogy:
+
+You had a job interview and you've been told:
+"We'll let you know within a week"
+
+A. Pending - promise has yet to be completed 
+B. Fulfilled / Resolved - The promise was completed 
+C. Rejected - The promise was not completed as promised 
+
+The data fetch() returns is a special data type in Javascript which is called a promise. A promise has a method of .then()
+
+5. Method Chaining
+
+document.getElementById("new-deck").addEventListener("click", function() {
+    console.log("Clicked!")
+})
+
+const voters = [
+    {name: "Joe", email: "joe@joe.com", voted: true},
+    {name: "Jane", email: "jane@jane.com", voted: true},
+    {name: "Bo", email: "bo@bo.com", voted: false},
+    {name: "Bane", email: "bane@bane.com", voted: false}
+]
+
+const finalResult = voters.filter(voter => voter.voted).map(voter => voter.email)
+console.log(finalResult)
+
+["joe@joe.com", "jane@jane.com"]
