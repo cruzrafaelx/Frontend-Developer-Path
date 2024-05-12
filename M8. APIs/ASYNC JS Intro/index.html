@@ -7,11 +7,46 @@
       <link rel="stylesheet" href="index.css">
 </head>
 <body>
-      <button id="new-deck">New deck!</button>
-      <button disabled class="not-allowed" id="new-cards">New cards!</button>
-      <div id="img-container">
+      <main>
+            <div class="left">
+                  <h1 class="war">WAR</h1>
+            </div>
+            <div class="middle">
+                  <div class="txt-container" id="score-com">
+                        <h1 class="score">Computer: </h1>
+                  </div>
+                  
             
+                  <div class="img-container">
+                        <div id="card-slot-1" class="placeholder"></div>
+                        <div id="card-slot-2" class="placeholder"></div>
+                  </div>
+            
+                  <div class="txt-container" id="score-me" >
+                        <h1 class="score">Me: </h1>
+                  </div>
+            </div>
+      
+            <div class="right">
+                  <h1 class="game">GAME</h1>
+            </div>
+      </main>
+      
+
+      <div class="footer">
+            <div class="remaining">
+                  <h1>Remaining cards: </h1>
+            </div>
+            <div class="btn-container">
+                  <button id="new-deck" class="new-deck">Shuffle deck</button>
+                  <button disabled class="not-allowed" id="new-cards" class="new-cards">Draw card</button>
+            </div>
+            <div id="winner" class="winner">
+
+            </div>
       </div>
+      
+
       <script src="index.js"></script>
 </body>
 </html>

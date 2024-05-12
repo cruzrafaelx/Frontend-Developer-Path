@@ -162,3 +162,9 @@ const finalResult = voters.filter(voter => voter.voted).map(voter => voter.email
 console.log(finalResult)
 
 ["joe@joe.com", "jane@jane.com"]
+
+
+CSS Properties:
+
+1. align-self: flex-start
+2. transform: translate(-50%, -50%);
