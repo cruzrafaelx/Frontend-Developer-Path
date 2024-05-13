@@ -8,6 +8,8 @@ const cardSlotTwo = document.getElementById("card-slot-2")
 const scoreCom = document.getElementById("score-com")
 const scoreMe = document.getElementById("score-me")
 const winner = document.getElementById("winner")
+const left = document.querySelector(".left")
+const right = document.querySelector(".right")
 const remaining = document.querySelector(".remaining")
 const name = document.querySelector(".name")
 
@@ -24,6 +26,12 @@ newCards.addEventListener("click", (e) =>{
       handleNewCards() 
 })
 
+newDeck.addEventListener("mousedown", function(){
+      newDeck.classList.add("active")
+})
+
+
+
 // Get new deck
 function handleClick(){
       fetch('https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/')
@@ -35,7 +43,16 @@ function handleClick(){
       newDeck.disabled = true 
       newDeck.classList.add("not-allowed")
 
-
+      //Reset texts on DOM
+      left.innerHTML = `<h1 class="war">WAR</h1>`
+      right.innerHTML = `<h1 class="game">GAME</h1>`
+      scoreCom.innerHTML = `<h1  class="score">Computer: 0</h1>`
+      scoreMe.innerHTML = `<h1  class="score">Me: 0</h1>`
+      winner.innerHTML = `<h1></h1>`
+      
+      //Reset scores
+      compScore = 0 
+      meScore = 0
 }
 
 //Draw new 2 cards
@@ -49,6 +66,22 @@ function handleNewCards(){
                         // assignment statement
                         newDeck.disabled = !newDeck.disabled
                         newCards.disabled = !newCards.disabled
+                        newDeck.classList.remove("not-allowed")
+                        newCards.classList.add("not-allowed")
+                        newDeck.classList.remove("active")
+
+                        if(meScore > compScore){
+                              left.innerHTML = `<h1 class="war">YOU</h1>`
+                              right.innerHTML = `<h1 class="game">WON!</h1>`
+
+                        } else if(meScore == compScore){
+                              left.innerHTML = `<h1 class="war">IT'S A</h1>`
+                              right.innerHTML = `<h1 class="game">TIE!</h1>`
+                              
+                        }else{
+                              left.innerHTML = `<h1 class="war">YOU</h1>`
+                              right.innerHTML = `<h1 class="game">LOST!</h1>`
+                        }
                   }
 
                   cardSlotOne.classList.remove("placeholder")
