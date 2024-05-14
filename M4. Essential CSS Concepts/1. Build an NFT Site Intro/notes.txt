@@ -23,7 +23,7 @@ d. <main> - page's unique content
 
 Why use?
 - Better accesibility
-- Make our HTML accesibility
+- Make our HTML accesible
 - Better for SEO 
 
 
@@ -110,7 +110,7 @@ Links are for navigation. Somewhere on the same page or somewhere else on the in
 A. block
 - Stack on top of each other
 - div, p, h1
-- set height and margin top and bottom
+- set height and margin top and bottom, it always comes with margins
 
 B. inline
 - sit side by side
@@ -119,7 +119,7 @@ B. inline
 
 C. inline-block 
 - sit side by side 
-- buttond and input 
+- button and input (forms)
 - set height and margin top and bottom
 
 12. Multiple classes in one element
