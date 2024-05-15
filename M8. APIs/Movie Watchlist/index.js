@@ -10,6 +10,9 @@ const movContainer = document.getElementById("mov-container")
 const popMoviesURL =  'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1'
 const posterURL = 'https://image.tmdb.org/t/p/w500'
 
+let addedMovies = []
+
+
 
 async function getMovies(url, options){
       const res = await fetch(url, options)
@@ -21,12 +24,12 @@ async function getMovies(url, options){
             for(let i=0; i < data.results.length; i++){
 
             //Deconstruction of the resolved promise
-            const {title, poster_path, vote_average, overview, genre_ids} = data.results[i]
+            const {title, poster_path, vote_average, overview, genre_ids, id} = data.results[i]
                   
                   //Call getGenres function
                   getGenres(genre_ids[0], genre_ids[1], genre_ids[2])
                    .then((res) => {
-
+                        
                         html += `
                         <div class="mov-box">
                               <div class="mov-poster">
@@ -36,7 +39,8 @@ async function getMovies(url, options){
                                           <img src="imgs/starr.png" alt="star">
                                           <h2>${vote_average.toFixed(2)}</h2>
                                           </div>
-                                          <button>+Watchlist</button>
+                                          <button class="add-btn" data-add="${id}">+Watchlist</button>
+                                          
                                     </div>
                               </div>
                         
@@ -47,6 +51,7 @@ async function getMovies(url, options){
                                     </div>
                                     <div class="desc-mid">
                                           <p>${res.join(', ')}</p>
+                                          
                                     </div>
                                     <div class="desc-bot">
                                           <p>${overview}</p>
@@ -56,11 +61,47 @@ async function getMovies(url, options){
                         
                         `
                         movContainer.innerHTML = html
-                   })                        
+
+                        const addBtn = document.querySelectorAll(".add-btn")
+                        
+                        addBtn.forEach(btn => {
+                              btn.addEventListener("click", async (e) => {
+                                    let movie = await addMovie(e.target.dataset.add)
+                                    console.log(movie)
+                                    addedMovies.push(movie)
+
+                              })
+                        })                       
+
+                   })        
+                           
             }
+            
       }
 
-    
+
+// addedMovies.forEach(promise => {
+//       promise.then(result => {
+//             console.log(result)
+//       })
+// })
+
+
+//Compare id of clicked movie with movies array- returns the match
+async function addMovie(movieId){
+      const res = await fetch(popMoviesURL, options)
+      const data = await res.json()
+      
+      const {results} = data
+
+      const targetMovie = results.find(result => {
+           return movieId == result.id
+      })
+
+      return targetMovie
+}
+
+
 getMovies(popMoviesURL, options)
 
 //Function to get the genres using the genres_id
@@ -90,4 +131,6 @@ async function getGenres(param, param1, param2){
 
      return genresArray
 }
+
+
 

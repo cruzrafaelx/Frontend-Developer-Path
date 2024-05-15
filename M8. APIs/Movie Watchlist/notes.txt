@@ -1,0 +1,11 @@
+1. DomContentLoaded
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Your code here
+    // Access the element with id "add-btn" here
+    const addBtn = document.getElementById("add-btn");
+    // Continue with your logic...
+});
+
+By wrapping your code inside the DOMContentLoaded event listener, you ensure that it runs only after the DOM content is fully loaded, including the elements you're trying to access. 
+
