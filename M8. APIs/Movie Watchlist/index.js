@@ -26,20 +26,27 @@ async function getMovies(url, options){
                   //Call getGenres function
                   getGenres(genre_ids[0], genre_ids[1], genre_ids[2])
                    .then((res) => {
-                                                
+
                         html += `
                         <div class="mov-box">
-                              <img src="${posterURL + poster_path}">
+                              <div class="mov-poster">
+                                    <img src="${posterURL + poster_path}">
+                                    <div class="poster-bg">
+                                          <div class="ratings">
+                                          <img src="imgs/starr.png" alt="star">
+                                          <h2>${vote_average.toFixed(2)}</h2>
+                                          </div>
+                                          <button>+Watchlist</button>
+                                    </div>
+                              </div>
                         
                               <div class="mov-desc">
                                     <div class="desc-top">
                                           <h4>${title}</h4>
-                                          <p>${vote_average.toFixed(2)}</p>
+                                          
                                     </div>
                                     <div class="desc-mid">
                                           <p>${res.join(', ')}</p>
-                                          <button>+Watchlist</button>
-                                          <p></p>
                                     </div>
                                     <div class="desc-bot">
                                           <p>${overview}</p>
