@@ -1,1 +1,2 @@
 1. .catch(err)
+2. throw Error("This is an error")

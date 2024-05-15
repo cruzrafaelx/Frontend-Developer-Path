@@ -39,3 +39,43 @@ main{
       text-align: center;
       font-size: 5rem;
 }
+
+#crypto{
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      margin: 0;
+}
+
+#crypto img{
+      width: 100px;
+}
+
+
+div#crypto {
+      
+      text-shadow: 0px 0px 20px #aaaaaa;
+}
+
+.crypto-price p,
+.crypto-high p ,
+.crypto-low p ,
+.crypto-logo p{
+      margin: 0;
+}
+
+.crypto-price,
+.crypto-high,
+.crypto-low,
+.crypto-logo{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 0;
+      float: left;
+}
+
+i{
+      margin-right: 1rem;
+}

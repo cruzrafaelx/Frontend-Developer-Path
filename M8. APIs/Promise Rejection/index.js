@@ -1,13 +1,12 @@
 
 const author = document.getElementById("author")
+const crypto = document.getElementById("crypto")
 
 
 //Get random photo from unsplash api
 fetch('https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=beach')
 .then(res => res.json())
 .then(data => {
-      
-      console.log(data)
 
       const defaultImg = data.urls.full
       const imageUrl = data.links.download
@@ -25,3 +24,39 @@ fetch('https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
       `
 })
       
+
+//Get data of a crypto coin
+fetch("https://api.coingecko.com/api/v3/coins/ethereum")
+      .then(res => {
+            if(!res.ok){
+                  throw Error("Something went wrong")
+            }
+            return res.json()
+      })
+      .then(data => {
+            console.log(data)
+
+            crypto.innerHTML = `
+            <div class="crypto-logo">
+                  <img src="${data.image.large}" alt="coin logo">
+                  <p>${data.name}</p>
+            </div>
+
+            <div class="crypto-price">
+                  <i class="fa-solid fa-euro-sign"></i>
+                  <p>${data.market_data.current_price.eur}</p>
+            </div>
+
+            <div class="crypto-high">
+                  <i class="fa-solid fa-arrow-up"></i>
+                  <p>${data.market_data.high_24h.eur}</p>
+            </div>
+
+            <div class="crypto-low">
+                  <i class="fa-solid fa-arrow-down"></i>
+                  <p>${data.market_data.low_24h.eur}</p>
+            </div>
+            
+            `
+      })
+      .catch(err => console.log(err))
