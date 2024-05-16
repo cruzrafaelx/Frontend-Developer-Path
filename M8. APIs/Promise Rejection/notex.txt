@@ -15,3 +15,6 @@ navigator.geolocation.getCurrentPosition(position => {
       const longitude = position.coords.longitude
       console.log(latitude, longitude)
 })
+
+5. Top level await
+- you can use "Await" without using "async" beforehand by setting your script type into module.
