@@ -10,9 +10,6 @@ const movContainer = document.getElementById("mov-container")
 const popMoviesURL =  'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1'
 const posterURL = 'https://image.tmdb.org/t/p/w500'
 
-let addedMovies = []
-
-
 
 async function getMovies(url, options){
       const res = await fetch(url, options)
@@ -61,40 +58,59 @@ async function getMovies(url, options){
                         
                         `
                         movContainer.innerHTML = html
-
+                        
+                        
                         const addBtn = document.querySelectorAll(".add-btn")
                         
                         addBtn.forEach(btn => {
                               btn.addEventListener("click", async (e) => {
+                                    
                                     let movie = await addMovie(e.target.dataset.add)
+                                    
                                     console.log(movie)
-                                    addedMovies.push(movie)
-
+                                    getAddedMovie(movie.id, movie)
+                                    
                               })
-                        })                       
-
-                   })        
-                           
+                        })   
+                                        
+                   })                      
             }
-            
+           
       }
 
+      
+export let addedMovie = []
 
-// addedMovies.forEach(promise => {
-//       promise.then(result => {
-//             console.log(result)
-//       })
-// })
+//Get added movie function
+async function getAddedMovie(movieId,clickedMovie){
+      const res = await fetch(popMoviesURL, options)
+      const data = await res.json()
+
+      localStorage.setItem(movieId, JSON.stringify(clickedMovie))
+      const result = localStorage.getItem(movieId)
+      const final = JSON.parse(result)
+      console.log(final)
+      console.log(localStorage)
+}
+
+
+
+
+// function getAllLocalStorageData(key){
+
+//       const data = localStorage.getItem(key[0])
+//       const final = JSON.parse(data)
+//       return final
+// }
+
 
 
 //Compare id of clicked movie with movies array- returns the match
 async function addMovie(movieId){
       const res = await fetch(popMoviesURL, options)
       const data = await res.json()
-      
-      const {results} = data
 
-      const targetMovie = results.find(result => {
+      const targetMovie = data.results.find(result => {
            return movieId == result.id
       })
 
