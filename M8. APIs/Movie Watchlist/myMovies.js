@@ -9,19 +9,43 @@ const options = {
 const myMovContainer = document.getElementById("myMov-container")
 const popMoviesURL =  'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1'
 const posterURL = 'https://image.tmdb.org/t/p/w500'
+let addedMoviesArray = []
+
+console.log(addedMoviesArray)
+
+//Get added movies from the localStorage 
+function getMoviesFromLocalStorage(){
+
+      for(let i = 0; i < localStorage.length; i++){
+            let key = localStorage.key(i)
+            let item = localStorage.getItem(key)
+            let parsedItem = JSON.parse(item)
+            addedMoviesArray.push(parsedItem)
+      }
+      console.log(addedMoviesArray)
+      console.log(localStorage.length)
+      renderAddedMovies()
+}
+
+getMoviesFromLocalStorage()
 
 
-async function getMovies(url, options){
-      const res = await fetch(url, options)
+
+async function renderAddedMovies(){
+      const res = await fetch(popMoviesURL, options)
       const data = await res.json()
             console.log(data.results)
 
             let html = ''
             
-            for(let i=0; i < data.results.length; i++){
+            // if(addedMoviesArray.length = 0){
+            //       myMovContainer.innerHTML = html
+            // } 
+
+            for(let i=0; i < addedMoviesArray.length ; i++){
 
             //Deconstruction of the resolved promise
-            const {title, poster_path, vote_average, overview, genre_ids, id} = data.results[i]
+            const {title, poster_path, vote_average, overview, genre_ids, id} = addedMoviesArray[i]
                   
                   //Call getGenres function
                   getGenres(genre_ids[0], genre_ids[1], genre_ids[2])
@@ -36,7 +60,7 @@ async function getMovies(url, options){
                                           <img src="imgs/starr.png" alt="star">
                                           <h2>${vote_average.toFixed(2)}</h2>
                                           </div>
-                                          <button class="add-btn" data-add="${id}">+Watchlist</button>
+                                          <button class="remove-btn" data-remove="${id}">- Remove</button>
                                           
                                     </div>
                               </div>
@@ -60,46 +84,30 @@ async function getMovies(url, options){
                         myMovContainer.innerHTML = html
                         
                         
-                        // const addBtn = document.querySelectorAll(".add-btn")
+                        const removeBtn = document.querySelectorAll(".remove-btn")
                         
-                        // addBtn.forEach(btn => {
-                        //       btn.addEventListener("click", async (e) => {
-                        //             let movie = await addMovie(e.target.dataset.add)
-                        //             console.log(movie)
-                        //             getAddedMovie(movie)
+                        removeBtn.forEach(btn => {
+                              btn.addEventListener("click", async (e) => {
+                                    let movie = await getTargetMovie(e.target.dataset.remove)
+                                    console.log(movie.id)
+                                    removeMovie(movie.id)
                                     
-                        //       })
-                        // })   
+                              })
+                        })   
                                         
                    })                      
             }
-           
+           console.log(addedMoviesArray)
       }
 
 
-//Get added movies from the localStorage 
-function getMoviesFromLocalStorage(){
-
-      let addedMoviesArray = []
-
-      for(let i = 0; i < localStorage.length; i++){
-            let key = localStorage.key(i)
-            let item = localStorage.getItem(key)
-            let parsedItem = JSON.parse(item)
-            addedMoviesArray.push(parsedItem)
-      }
-
-      console.log(addedMoviesArray)
-}
-
-getMoviesFromLocalStorage()
 
 
 
 
 
 //Compare id of clicked movie with movies array- returns the match
-async function addMovie(movieId){
+async function getTargetMovie(movieId){
       const res = await fetch(popMoviesURL, options)
       const data = await res.json()
 
@@ -110,8 +118,6 @@ async function addMovie(movieId){
       return targetMovie
 }
 
-
-getMovies(popMoviesURL, options)
 
 //Function to get the genres using the genres_id
 async function getGenres(param, param1, param2){
@@ -142,5 +148,33 @@ async function getGenres(param, param1, param2){
 }
 
 
+//Remove movie from local storage
+function removeMovie(movieId){
+
+      let modifiedArray = []
+
+      localStorage.removeItem(movieId)
+
+      for(let i=0; i < localStorage.length;i++){
+            key = localStorage.key(i)
+            item = localStorage.getItem(key)
+            parsedItem = JSON.parse(item)
+            modifiedArray.push(parsedItem)
+      }
+
+      addedMoviesArray = modifiedArray
+
+      if (addedMoviesArray.length === 0) {
+            // If there are no movies left, clear the HTML content
+            myMovContainer.innerHTML = '';
+        } else {
+            // If there are still movies left, render them
+            renderAddedMovies();
+        }
+}
 
 
+
+//POINTERS:
+//The array should be modified as well when the local storage has been modified.
+//At some point, the remove button does not work anymore. ???

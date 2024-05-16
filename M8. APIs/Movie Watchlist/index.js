@@ -67,7 +67,7 @@ async function getMovies(url, options){
                                     
                                     let movie = await addMovie(e.target.dataset.add)
                                     
-                                    console.log(movie)
+
                                     getAddedMovie(movie.id, movie)
                                     
                               })
@@ -79,7 +79,7 @@ async function getMovies(url, options){
       }
 
       
-export let addedMovie = []
+
 
 //Get added movie function
 async function getAddedMovie(movieId,clickedMovie){
@@ -89,8 +89,8 @@ async function getAddedMovie(movieId,clickedMovie){
       localStorage.setItem(movieId, JSON.stringify(clickedMovie))
       const result = localStorage.getItem(movieId)
       const final = JSON.parse(result)
-      console.log(final)
-      console.log(localStorage)
+      
+      console.log(localStorage.length)
 }
 
 
