@@ -1,6 +1,7 @@
 
 const author = document.getElementById("author")
 const crypto = document.getElementById("crypto")
+const time = document.getElementById("time")
 
 
 //Get random photo from unsplash api
@@ -60,3 +61,22 @@ fetch("https://api.coingecko.com/api/v3/coins/ethereum")
             `
       })
       .catch(err => console.log(err))
+
+//Get current time
+function getTime(){
+
+      //function to add 0 to single digit numbers
+      const currTime = num => num < 10 ? '0' + num : num
+
+      const now = new Date()
+      const hours = currTime(now.getHours())
+      const minutes = currTime(now.getMinutes())
+      const seconds = currTime(now.getSeconds())
+
+      time.innerHTML = `
+      ${hours}:${minutes}
+      `
+}
+
+getTime()
+
