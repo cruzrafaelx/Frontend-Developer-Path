@@ -2,6 +2,8 @@
 const author = document.getElementById("author")
 const crypto = document.getElementById("crypto")
 const time = document.getElementById("time")
+const weather = document.getElementById("weather")
+const fact = document.getElementById("fact")
 
 
 //Get random photo from unsplash api
@@ -64,19 +66,60 @@ fetch("https://api.coingecko.com/api/v3/coins/ethereum")
 
 //Get current time
 function getTime(){
-
-      //function to add 0 to single digit numbers
-      const currTime = num => num < 10 ? '0' + num : num
-
-      const now = new Date()
-      const hours = currTime(now.getHours())
-      const minutes = currTime(now.getMinutes())
-      const seconds = currTime(now.getSeconds())
-
-      time.innerHTML = `
-      ${hours}:${minutes}
-      `
+      let timeNow = ""
+      const date = new Date()
+      timeNow += date.toLocaleTimeString("de", {timeStyle: "medium"})
+      time.innerHTML = `${timeNow}`
 }
 
-getTime()
+setInterval(getTime, 1000)
 
+//get user coordinates using Geolocation Web API and weather data 
+navigator.geolocation.getCurrentPosition(position => {
+      
+      const latitude = position.coords.latitude
+      const longitude = position.coords.longitude
+
+      fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric`)
+      .then(res => {
+            if(!res.ok){
+                  throw Error("Weather data not available")
+            }
+
+            return res.json()
+      }) 
+      .then(data => {
+            console.log(data)
+            const icon = data.weather[0].icon
+
+            //Display weather icon
+            weather.innerHTML = `
+            <div class="weather-top">
+                  <img src= https://openweathermap.org/img/wn/${icon}@2x.png alt="weather icon">
+                  <p>${data.main.temp.toFixed(0)}°C</p>
+            </div>
+            <p>${data.name}</p>
+            `
+
+      })
+      .catch(err => console.error(err))
+})
+
+//Get random fact function
+function getFact(){
+      fetch('https://api.api-ninjas.com/v1/facts', 
+      {
+            headers: { 'X-Api-Key': 'mFZunLq1qeqBhLlZi6kwWg==GPzltp8DEtyKGxqA'},
+            contentType: 'application/json'
+      }
+)
+      .then(res => res.json())
+      .then(data => {
+            console.log(data[0].fact)
+
+            fact.innerHTML = `${data[0].fact}`
+      })
+}
+
+getFact()
+setInterval(getFact, 15000)

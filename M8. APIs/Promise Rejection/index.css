@@ -35,9 +35,18 @@ main{
       justify-content: space-between;
 }
 
+
+
 .time{
       text-align: center;
       font-size: 10rem;
+      margin-top: 0;
+      margin-bottom: 0;
+}
+
+.fact{
+      text-align: center;
+      margin: 0;
 }
 
 #crypto{
@@ -47,13 +56,17 @@ main{
       margin: 0;
 }
 
+.crypto-logo{
+      margin-left: -1.7rem;
+      margin-bottom: 1rem;
+}
+
 #crypto img{
       width: 100px;
 }
 
 
 div#crypto {
-      
       text-shadow: 0px 0px 20px #aaaaaa;
 }
 
@@ -78,4 +91,28 @@ div#crypto {
 
 i{
       margin-right: 1rem;
+}
+
+
+.weather-top{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: -2rem;
+}
+
+.weather-top img{
+      height: 150px;
+}
+
+.weather-top p{
+      font-size: 3rem;
+      margin: 0;
+      margin-left: -1.5rem;
+      font-weight: 600;
+}
+
+#weather > p{
+      margin-top: -1.5rem;
+      text-align: right;
 }

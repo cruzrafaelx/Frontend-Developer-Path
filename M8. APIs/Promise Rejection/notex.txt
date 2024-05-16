@@ -1,2 +1,17 @@
 1. .catch(err)
 2. throw Error("This is an error")
+3. Get current time
+
+const date = new Date()
+timeNow += date.toLocaleTimeString("de", {timeStyle: "medium"})
+
+4. get user's coordinates using Geolocation API 
+
+
+
+navigator.geolocation.getCurrentPosition(position => {
+      
+      const latitude = position.coords.latitude
+      const longitude = position.coords.longitude
+      console.log(latitude, longitude)
+})
