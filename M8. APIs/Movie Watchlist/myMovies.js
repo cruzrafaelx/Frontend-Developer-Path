@@ -13,24 +13,6 @@ let addedMoviesArray = []
 
 console.log(addedMoviesArray)
 
-//Get added movies from the localStorage 
-function getMoviesFromLocalStorage(){
-
-      for(let i = 0; i < localStorage.length; i++){
-            let key = localStorage.key(i)
-            let item = localStorage.getItem(key)
-            let parsedItem = JSON.parse(item)
-            addedMoviesArray.push(parsedItem)
-      }
-      console.log(addedMoviesArray)
-      console.log(localStorage.length)
-      renderAddedMovies()
-}
-
-getMoviesFromLocalStorage()
-
-
-
 async function renderAddedMovies(){
       const res = await fetch(popMoviesURL, options)
       const data = await res.json()
@@ -83,7 +65,6 @@ async function renderAddedMovies(){
                         `
                         myMovContainer.innerHTML = html
                         
-                        
                         const removeBtn = document.querySelectorAll(".remove-btn")
                         
                         removeBtn.forEach(btn => {
@@ -102,10 +83,6 @@ async function renderAddedMovies(){
 
 
 
-
-
-
-
 //Compare id of clicked movie with movies array- returns the match
 async function getTargetMovie(movieId){
       const res = await fetch(popMoviesURL, options)
@@ -119,7 +96,7 @@ async function getTargetMovie(movieId){
 }
 
 
-//Function to get the genres using the genres_id
+//Get the genres using the genres_id
 async function getGenres(param, param1, param2){
       
       let genresArray = []
@@ -147,6 +124,21 @@ async function getGenres(param, param1, param2){
      return genresArray
 }
 
+//Get added movies from the localStorage 
+function getMoviesFromLocalStorage(){
+
+      for(let i = 0; i < localStorage.length; i++){
+            let key = localStorage.key(i)
+            let item = localStorage.getItem(key)
+            let parsedItem = JSON.parse(item)
+            addedMoviesArray.push(parsedItem)
+      }
+      console.log(addedMoviesArray)
+      console.log(localStorage.length)
+      renderAddedMovies()
+}
+
+getMoviesFromLocalStorage()
 
 //Remove movie from local storage
 function removeMovie(movieId){
@@ -173,8 +165,3 @@ function removeMovie(movieId){
         }
 }
 
-
-
-//POINTERS:
-//The array should be modified as well when the local storage has been modified.
-//At some point, the remove button does not work anymore. ???

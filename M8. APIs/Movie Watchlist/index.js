@@ -6,15 +6,61 @@ const options = {
       }
     };
 
+const searchBar = document.getElementById("search")
 const movContainer = document.getElementById("mov-container")
 const popMoviesURL =  'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1'
 const posterURL = 'https://image.tmdb.org/t/p/w500'
+const searchMoviesURL = `https://api.themoviedb.org/3/search/movie?query=Cinderella&api_key=API_KEY`
+
+
+
+//Eventlistener for search input
+searchBar.addEventListener("keypress", (e) => {
+     
+      if(e.key === "Enter" ){
+            if(searchBar.value){
+                  e.preventDefault()
+                  const wordsArray = searchBar.value.split(" ")
+                  const searchUrl = wordsArray.join("+")
+                  const finalSearchUrl = `https://api.themoviedb.org/3/search/movie?query=${searchUrl}`
+                  getMovies(finalSearchUrl, options)
+            }else{
+                  e.preventDefault()
+                  getMovies(popMoviesURL, options)
+            }
+            
+          
+      } 
+      
+})
+
+//Search function
+// async function searchMovie(searchValue){
+//       const wordsArray = searchValue.split(" ")
+//       const searchUrl = wordsArray.join("+")
+      
+//       const res = await fetch(`https://api.themoviedb.org/3/search/movie?query=${searchUrl}&api_key=API_KEY`, options)
+//       const data = await res.json()
+   
+//       console.log(data)
+//       renderSearchedMovies(data)
+// }
+
+
+//Render searched movies
+async function renderSearchedMovies(searchedMoviesObject){
+      const res = await fetch('https://api.themoviedb.org/3/search/movie', options)
+      const data = await res.json()
+
+      // console.log(searchedMoviesObject)
+      console.log(data)
+}
+
 
 
 async function getMovies(url, options){
       const res = await fetch(url, options)
       const data = await res.json()
-            console.log(data.results)
 
             let html = ''
             
