@@ -10,8 +10,6 @@ const searchBar = document.getElementById("search")
 const movContainer = document.getElementById("mov-container")
 const popMoviesURL =  'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1'
 const posterURL = 'https://image.tmdb.org/t/p/w500'
-const searchMoviesURL = `https://api.themoviedb.org/3/search/movie?query=Cinderella&api_key=API_KEY`
-
 
 
 //Eventlistener for search input
@@ -33,30 +31,6 @@ searchBar.addEventListener("keypress", (e) => {
       } 
       
 })
-
-//Search function
-// async function searchMovie(searchValue){
-//       const wordsArray = searchValue.split(" ")
-//       const searchUrl = wordsArray.join("+")
-      
-//       const res = await fetch(`https://api.themoviedb.org/3/search/movie?query=${searchUrl}&api_key=API_KEY`, options)
-//       const data = await res.json()
-   
-//       console.log(data)
-//       renderSearchedMovies(data)
-// }
-
-
-//Render searched movies
-async function renderSearchedMovies(searchedMoviesObject){
-      const res = await fetch('https://api.themoviedb.org/3/search/movie', options)
-      const data = await res.json()
-
-      // console.log(searchedMoviesObject)
-      console.log(data)
-}
-
-
 
 async function getMovies(url, options){
       const res = await fetch(url, options)
@@ -82,7 +56,7 @@ async function getMovies(url, options){
                                           <img src="imgs/starr.png" alt="star">
                                           <h2>${vote_average.toFixed(2)}</h2>
                                           </div>
-                                          <button class="add-btn" data-add="${id}">+Watchlist</button>
+                                          <button class="add-btn" data-add="${id}" data-title="${title}">+Watchlist</button>
                                           
                                     </div>
                               </div>
@@ -111,10 +85,11 @@ async function getMovies(url, options){
                         addBtn.forEach(btn => {
                               btn.addEventListener("click", async (e) => {
                                     
-                                    let movie = await addMovie(e.target.dataset.add)
-                                    
+                                    let searchQuery = e.target.dataset.title
 
-                                    getAddedMovie(movie.id, movie)
+                                    let movie = await addMovie(searchQuery, e.target.dataset.add)
+                                    
+                                    getAddedMovie(title, movie.id, movie)
                                     
                               })
                         })   
@@ -128,8 +103,8 @@ async function getMovies(url, options){
 
 
 //Get added movie function
-async function getAddedMovie(movieId,clickedMovie){
-      const res = await fetch(popMoviesURL, options)
+async function getAddedMovie(title, movieId,clickedMovie){
+      const res = await fetch(`https://api.themoviedb.org/3/search/movie?query=${title}`, options)
       const data = await res.json()
 
       localStorage.setItem(movieId, JSON.stringify(clickedMovie))
@@ -140,20 +115,9 @@ async function getAddedMovie(movieId,clickedMovie){
 }
 
 
-
-
-// function getAllLocalStorageData(key){
-
-//       const data = localStorage.getItem(key[0])
-//       const final = JSON.parse(data)
-//       return final
-// }
-
-
-
 //Compare id of clicked movie with movies array- returns the match
-async function addMovie(movieId){
-      const res = await fetch(popMoviesURL, options)
+async function addMovie(title, movieId){
+      const res = await fetch(`https://api.themoviedb.org/3/search/movie?query=${title}`, options)
       const data = await res.json()
 
       const targetMovie = data.results.find(result => {

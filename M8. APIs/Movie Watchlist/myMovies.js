@@ -13,7 +13,7 @@ let addedMoviesArray = []
 
 console.log(addedMoviesArray)
 
-async function renderAddedMovies(){
+async function renderAddedMovies(url){
       const res = await fetch(popMoviesURL, options)
       const data = await res.json()
             console.log(data.results)
@@ -42,7 +42,7 @@ async function renderAddedMovies(){
                                           <img src="imgs/starr.png" alt="star">
                                           <h2>${vote_average.toFixed(2)}</h2>
                                           </div>
-                                          <button class="remove-btn" data-remove="${id}">- Remove</button>
+                                          <button class="remove-btn" data-remove="${id}" data-title="${title}">- Remove</button>
                                           
                                     </div>
                               </div>
@@ -65,12 +65,15 @@ async function renderAddedMovies(){
                         `
                         myMovContainer.innerHTML = html
                         
+
                         const removeBtn = document.querySelectorAll(".remove-btn")
                         
                         removeBtn.forEach(btn => {
                               btn.addEventListener("click", async (e) => {
-                                    let movie = await getTargetMovie(e.target.dataset.remove)
-                                    console.log(movie.id)
+                                    let searchQuery = e.target.dataset.title
+                                    
+                                    let movie = await getTargetMovie(searchQuery, e.target.dataset.remove)
+                                    
                                     removeMovie(movie.id)
                                     
                               })
@@ -84,8 +87,8 @@ async function renderAddedMovies(){
 
 
 //Compare id of clicked movie with movies array- returns the match
-async function getTargetMovie(movieId){
-      const res = await fetch(popMoviesURL, options)
+async function getTargetMovie(title, movieId){
+      const res = await fetch(`https://api.themoviedb.org/3/search/movie?query=${title}`, options)
       const data = await res.json()
 
       const targetMovie = data.results.find(result => {
