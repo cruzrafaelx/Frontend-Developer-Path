@@ -1,38 +1,65 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body{
+  margin: 0;
+  background-color: #282D35;
+  font-family: "Inter" ;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+   box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  padding: 1em 1.5em;
+  background-color: #21222A;
+}
+
+.left > h3{
+  font-size: 1.39em;
+  color: #61DAFB;
+}
+
+.right > h4{
+  color: #DEEBF8;
+}
+
+.navbar-logo{
+  width: 40px;
+  margin-right: 0.5em;
+}
+
+.navbar .left{
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.navbar .right{
+align-self: center;
+}
+
+.main-content{
+  margin-left: 2em;
+  background-image: url("./images/react-icon-large.png");
+  background-repeat: no-repeat;
+  background-position: right 75%;
+}
+
+.main-content > h1{
+  color: #FFFFFF;
+  font-size: 2.44em;
+}
+
+.main-content > ul li{
   color: white;
+  margin-bottom: 1em;
+  
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-content > ul li::marker{
+  color: #61DAFB;
+  font-size: 1.3em;
 }
