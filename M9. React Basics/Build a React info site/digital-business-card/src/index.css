@@ -7,6 +7,7 @@
 body {
   margin: 0;
   font-family: 'Inter';
+  background-color: #23252C;
 
 }
 
@@ -14,12 +15,13 @@ body {
   width: 317px;
   height: 780px;
   margin: 0 auto;
-  border: 1px solid red;
   margin-top: 3em;
   border-radius: 1em;
   background-color: #1A1B21;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
 
 .avatar{
  width: 100%;
@@ -28,12 +30,17 @@ body {
  border-top-right-radius: 1em;
 }
 
+
+.header{
+  padding: 0 1em;
+}
+
 .user{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 1em 0;
+  margin: -1.3em 0 1.3em 0;
   
 }
 
@@ -44,15 +51,18 @@ body {
 
 .user .name{
   color: #FFFFFF;
+  font-size: 1.5em;
 }
 
 .user .title{
   color: #F3BF99;
+  font-size: 0.8em;
   font-weight: 200;
 }
 
 .user .site{
   margin-top: 0.6em;
+  font-size: 0.6em;
   color: #F5F5F5;
   font-weight: 200;
 }
@@ -68,13 +78,12 @@ body {
 }
 
 .cta-left, .cta-right{
-
   display: flex;
   text-align: center;
   justify-content: center;
   border-radius: 0.3em;
   width: 50%;
-  margin: 0 1em;
+  margin: 0 0.9em;
   padding: 0.5em 1.3em;
   background-color: red;
   text-decoration: none;
@@ -84,6 +93,7 @@ body {
 .cta-left > h4, .cta-right > h4{
   margin: 0;
   font-weight: 400;
+  font-size: 0.9em;
   margin-left: 0.4em;
 }
 
@@ -109,15 +119,49 @@ body {
 
 .main{
   color: #FFFFFF;
-  padding: 0.5em 2em;
+  padding: 0.5em 2em ;
+
 }
 
 .about > h2, .interests > h2{
-  font-size: 1.3rem;
+  font-size: 1rem;
+  margin: 0 0 0.5em 0;
+}
+
+.about{
+  margin-top: -2em;
+  margin-bottom: 1em;
 }
 
 .about > p, .interests >p{
-  font-size: 0.8rem;
+  font-size: 0.63rem;
   font-weight: 300;
   line-height: 1rem;
+  margin: 0;
 }
+
+/* Footer CSS */
+.footer{
+  margin-top: -1em;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  background-color: #161619;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer > a{
+  padding: 0.3em;
+  background-color: #918E9B;
+  padding-bottom: 0.5em;
+  margin: 0 1em;
+  width: 10%;
+  height: 80%;
+  text-align: center;
+  border-radius: 0.3em;
+}
+
+
