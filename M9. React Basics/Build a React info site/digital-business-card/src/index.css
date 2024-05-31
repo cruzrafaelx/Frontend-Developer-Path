@@ -8,13 +8,16 @@ body {
   margin: 0;
   font-family: 'Inter';
   background-color: #23252C;
-
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .parent{
   width: 317px;
   height: 780px;
-  margin: 0 auto;
   margin-top: 3em;
   border-radius: 1em;
   background-color: #1A1B21;
