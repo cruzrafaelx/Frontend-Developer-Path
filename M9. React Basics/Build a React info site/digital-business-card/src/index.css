@@ -1,17 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+*{
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
+  font-family: 'Inter';
 
 }
 
-.Parent{
+.parent{
   width: 317px;
   height: 780px;
   margin: 0 auto;
   border: 1px solid red;
+  margin-top: 3em;
+  border-radius: 1em;
+  background-color: #1A1B21;
 }
 
 
 .avatar{
  width: 100%;
  height: 317px;
+ border-top-left-radius: 1em;
+ border-top-right-radius: 1em;
+}
+
+.user{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1em 0;
+  
+}
+
+.user .title,
+.user .name{
+  margin: 0;
+}
+
+.user .name{
+  color: #FFFFFF;
+}
+
+.user .title{
+  color: #F3BF99;
+  font-weight: 200;
+}
+
+.user .site{
+  margin-top: 0.6em;
+  color: #F5F5F5;
+  font-weight: 200;
+}
+
+.cta-btns{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #F5F5F5;
+
+}
+
+.cta-left, .cta-right{
+
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  border-radius: 0.3em;
+  width: 50%;
+  margin: 0 1em;
+  padding: 0.5em 1.3em;
+  background-color: red;
+  text-decoration: none;
+  
+}
+
+.cta-left > h4, .cta-right > h4{
+  margin: 0;
+  font-weight: 400;
+  margin-left: 0.4em;
+}
+
+.cta-left{
+  background-color: #D1D5DB;
+  color: #374151;
+}
+
+.mail-btn{
+  fill: #1E1F26;
+}
+
+.cta-right{
+  background-color: #5093E2;
+  color: #FFFFFF;
+}
+
+.linkedin-btn{
+  fill: #FFFFFF;
 }

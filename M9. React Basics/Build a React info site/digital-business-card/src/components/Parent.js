@@ -6,7 +6,7 @@ import '../Parent.css'
 
 export default function Parent(){
       return(
-            <div className='Parent'>
+            <div className='parent'>
                   <Image />
                   <Header />
                   <About />
