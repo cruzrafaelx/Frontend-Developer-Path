@@ -19,8 +19,10 @@ body {
   background-color: white;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
-  margin-top: 1rem;
-  padding-bottom: 3rem;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
 /* NAV */
@@ -74,8 +76,7 @@ body {
 
 .card{
   width: 176px;
-  margin-left: 2.25rem;
-  margin-top: 3rem;
+  margin: 1.5rem 2.25rem 2rem 0;
 }
 
 .card-photo{
@@ -147,4 +148,10 @@ body {
   color: #918E9B;
   letter-spacing: 0.8px;
   margin: 0;
+}
+
+.cards-list{
+  display: flex;
+  overflow-x: scroll; 
+  padding-left: 1.875rem;
 }

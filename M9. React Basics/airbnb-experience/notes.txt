@@ -4,6 +4,9 @@
 4. Conditional Rendering
 5. Non-string props
 6. .charAt(num) & toUpperCase() & slice(num)
+7. Mapping Components
+8. String Interpolation in JSX
+9. Object Spread Syntax
 
 1. Javascript in JSX 
 
@@ -141,4 +144,33 @@ export default function App() {
 }
 
 - In this case, we mapped over the jokesData to access its array of objects. We then return an instance of the Joke component with the setup and punchline props in every iteration.
-         
+
+8. String interpolation in React
+
+ <img src={"./Images/" + props.coverImg} className="person-img" alt="picture of Katie Zaferes"></img>
+
+
+9. Object spread syntax 
+
+
+item={card} -> {...card}
+
+What this does is, the spread syntax creates an individual prop for each object property. 
+
+so, using {...card} would make:
+
+id={card.id}
+title={card.title}
+description={card.description}
+
+
+export default function App() {
+    const cards = data.map(item => {
+        return (
+            <Card
+                key={item.id}
+               
+                
+            />
+        )
+    })   
