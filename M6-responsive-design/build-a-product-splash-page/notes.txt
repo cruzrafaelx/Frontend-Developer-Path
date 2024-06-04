@@ -1,0 +1,58 @@
+- use px for image sizing
+- use rem for font sizing
+- use vw for fluid font sizing
+- use em for padding and margins
+- use min-height, max-width for containers with px
+
+1. Transforming text
+
+text-transform: capitalize; - will capitalize every first letter of the word.
+text-transform: lowercase;
+text-transform: uppercase;
+
+2. Viewport Units
+- vh 
+- 1vh = 1% of the viewport height
+- use min-height: 100vh;
+
+-vw
+- you can use vw for font-size to make it fluid when resizing the screen!
+
+3. background
+
+-background-image: url("");
+-background-size: cover/contain;
+-background-position: center;
+-background: #9480e4 url("images/background-img.jpg");
+-You can use a color as well as a fall back background just incase the image does not load.
+
+4. Forms
+- letter-spacing: 
+- Pseudo class :focus: border, background-color
+- they do not inherint font-family so use:
+- font-family: inherit;
+
+5. Modifier Classes
+- Second class that you declare to an element to add specific designs other than the base design that the first class does.
+- This makes your CSS more reusable and flexible. 
+
+<button class="btn btn-primary">
+
+6. Reordering flex items
+
+.tube{
+      order: -1;
+}
+
+The order value is 0 by default. So if you want to move it to left, you use negative numbers. To the right, would be positive.
+
+7. max-width
+- apply max-width to containers to prevent stretching of items.
+
+8. CSS box-sizing
+
+box-sizing: border-box;
+
+- This property squeezes all the borders and the paddings into the total set size of the element. 
+- apply this to the universal selector: * 
+- use *, *::before, *::after if your website is using pseudo-elements
