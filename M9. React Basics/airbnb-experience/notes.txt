@@ -1,0 +1,144 @@
+1. JS in JSX
+2. Props
+3. Destructuring props
+4. Conditional Rendering
+5. Non-string props
+6. .charAt(num) & toUpperCase() & slice(num)
+
+1. Javascript in JSX 
+
+function App() {
+    const date = new Date()
+    
+    return (
+        <h1>It is currently about {date.getHours()}!</h1>
+    )
+}
+
+2. Props 
+- Props are used to pass data from one component to another.
+- You pass props to a compopnent by including them as attributes in the component's JSX tag. 
+
+import React from 'react';
+
+// Child component that receives props
+function Greeting(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
+
+// Parent component that passes props to the child component
+function App() {
+  return (
+    <div>
+      <Greeting name="Alice" />
+      <Greeting name="Bob" />
+    </div>
+  );
+}
+
+export default App;
+
+PROP QUIZ!
+
+1. What do props help us accomplish?
+
+- Props let us avoid hard coding. 
+- It lets us pass data from one component to another. 
+- It makes a component more reusable. 
+
+
+2. How do you pass a prop into a component?
+
+- you pass a prop into a component by including props as an attribute in the component JSX tags. 
+- <MyAwesomeHeader title="???" />
+
+
+3. Can I pass a custom prop (e.g. `blahblahblah={true}`) to a native
+   DOM element? (e.g. <div blahblahblah={true}>) Why or why not?
+   
+- No, because this does not specify the component where the prop is supposed to be passed into.
+- No, because the JSX we use to describe native DOM elements will
+be turned into REAL DOM elements by React. And real DOM elements
+only have the properties/attributes specified in the HTML specification.
+(Which doesn't include properties like `blahblahblah`)
+
+
+4. How do I receive props in a component?
+function Navbar(props) {
+    return (
+        <header>
+            <h1>Hello, {props.name}
+        </header>
+    )
+}
+
+5. What data type is `props` when the component receives it?
+
+- it is an object
+
+
+
+3. Destructuring props
+
+export default function Contact({img, name, phone, email}) {
+    return (
+        <div className="contact-card">
+            <img src={img}/>
+            <h3>{name}</h3>
+            <div className="info-group">
+                <img src="./images/phone-icon.png" />
+                <p>{phone}</p>
+            </div>
+            <div className="info-group">
+                <img src="./images/mail-icon.png" />
+                <p>{email}</p>
+            </div>
+        </div>
+    )
+}
+
+
+4. Conditional Rendering
+
+import React from "react"
+
+export default function Joke(props) {
+    return (
+        <div>
+            {props.setup && <h3>Setup: {props.setup}</h3>}
+            <p>Punchline: {props.punchline}</p>
+            <hr />
+        </div>
+    )
+}
+
+- If props.setup is true then the <h3> element will be displayed. 
+
+5. Non-string props
+
+- if passing  a non-string props, like booleans or numbers, use { }
+
+6. .charAt(num) & toUpperCase() & slice(num)
+
+- .charAt(0) lets you choose the character of a string with index position of (num)
+- .slice(num) lets you choose characters starting from the (num)(index position) character 
+
+7. Mapping Components
+
+import React from "react"
+import Joke from "./Joke"
+import jokesData from "./jokesData" // Data that contains jokes
+
+export default function App() {
+    const jokeElements = jokesData.map(joke => {
+        return <Joke setup={joke.setup} punchline={joke.punchline} />
+    })
+    return (
+        <div>
+            {jokeElements}
+        </div>
+    )
+}
+
+- In this case, we mapped over the jokesData to access its array of objects. We then return an instance of the Joke component with the setup and punchline props in every iteration.
+         

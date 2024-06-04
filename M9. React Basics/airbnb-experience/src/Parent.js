@@ -7,7 +7,14 @@ export default function Parent() {
     <div className="parent">
         <Navbar />
         <Hero />
-        <Card />
+        <Card
+          status="Sold Out"
+          rating={5.0}
+          count={6}
+          location="USA"
+          title="Life Lessons with Katie Zaferes"
+          price={136}
+        />
     </div>
   );
 }

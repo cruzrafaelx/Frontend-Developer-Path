@@ -17,20 +17,20 @@ body {
 .parent{
   width: 550px;
   background-color: white;
-  border-top-left-radius: 1em;
-  border-top-right-radius: 1em;
-  margin-top: 1em;
-  padding-bottom: 3em;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  margin-top: 1rem;
+  padding-bottom: 3rem;
 }
 
 /* NAV */
 .nav{
-  padding: 1.375em 1.875em;
+  padding: 1.375rem 1.875rem;
   box-shadow: 0px 2.98px 7.46px 0px #0000001A;
   border: none;
   margin: 0;
-  border-top-left-radius: 1em;
-  border-top-right-radius: 1em;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .nav-logo{
@@ -49,17 +49,17 @@ body {
   display: block;
   width: 395px;
   height: 232px;
-  margin: 1.5em auto;
+  margin: 1.5rem auto;
 }
 
 .hero-txt{
   width: 347px;
-  margin-top: 2em;
-  margin-left: 2.25em;
+  margin-top: 2rem;
+  margin-left: 2.25rem;
 }
 
 .hero-txt > h1{
-  font-size: 2.25em;
+  font-size: 2.25rem;
   font-weight: 600;
   line-height: 39.6px;
 }
@@ -74,8 +74,8 @@ body {
 
 .card{
   width: 176px;
-  margin-left: 2.25em;
-  margin-top: 3em;
+  margin-left: 2.25rem;
+  margin-top: 3rem;
 }
 
 .card-photo{
@@ -85,20 +85,20 @@ body {
 .person-img{
   height: 235px;
   width: 176px;
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
 }
 
 .card-status{
   position: absolute;
   top: -5px;
   left: 5px;
-  font-size: 0.64em;
+  font-size: 0.64rem;
   font-weight: 400;
   text-align: center;
   color: #222222;
   text-transform: uppercase;
-  padding: 0.1em 0.5em;
-  border-radius: 0.3em;
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.3rem;
   background-color: white;
 }
 
@@ -112,7 +112,7 @@ body {
 .card-description,
 .card-price{
   margin-top: 0;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.2rem;
   font-size: 0.7rem;
 }
 
@@ -138,7 +138,7 @@ body {
 
 .card-rating,
 .card-star{
-  margin: 0 0.3em 0 0;
+  margin: 0 0.3rem 0 0;
 }
 
 .card-location{
