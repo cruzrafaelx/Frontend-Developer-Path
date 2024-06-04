@@ -1,0 +1,5 @@
+How to deploy your create-react-app on netlify:
+
+1. npm run build
+2. netlify deploy --dir=build
+3. netlify deploy --prod --dir=build
