@@ -1,0 +1,55 @@
+- Local Storage
+
+Syntax
+localStorage.setItem(key, JSON.stringify(value))
+var storedLeads = JSON.parse(localStorage.getItem(key))
+localStorage.clear()
+PS: both key and value need to be strings
+
+- addEventListener()
+
+Syntax:
+btnId.addEventListener("click", function(){
+    console.log(`${data[0].player}'s score is ${data[0].score}`)
+})
+
+- .value
+gets the value of the userinput
+
+- .innerHtml
+
+const container = document.getElementById("container")
+let images = ""
+const imgs = [
+    "images/hip1.jpg",
+    "images/hip2.jpg",
+    "images/hip3.jpg"
+]
+
+function displayImages(arr){
+    for(let i = 0; i < arr.length; i++){
+         images += `<img class ="team-img" src="${arr[i]}">`
+    }
+    return images    
+}
+
+console.log(container.innerHTML = displayImages(imgs))
+
+
+- .toFixed(2)
+
+Rounds number up or down to specified decimal places
+
+- parseInt()
+turns a string into a number
+var x = parseInt("1000", 10); // You want to use radix 10
+    // So you get a decimal number even with a leading 0
+
+- Number()
+Turns string into an integer
+
+- parseFloat()
+If you're the type who forgets to put the radix in when you call parseInt, you can use parseFloat and round it however you like. Here I use floor.
+
+var floor = Math.floor;
+var x = floor(parseFloat("1000.01"));
