@@ -1,13 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: Inter;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.navbar{
+  padding: 1em 20em;
+  min-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white; 
+  height: 65px;
+  background-image: linear-gradient(to right, #672280 0%, #8224A3 50%, #A626D3 100%);
+}
+
+.navbar-left{
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
+.nav-img{
+  margin-right: 1em;
+  height: 60px;
+}
+
+/* Form */
+
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+  margin: 0 20em;
+}
+
+.input-container{
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+
+
+.top-container,
+.btm-container{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 2rem 0;
+  width: 48%;
+ 
+}
+
+.top-label,
+.btm-label{
+  margin-bottom: 0.3rem;
+  color: #374151;
+  font-weight: medium;
+}
+
+.top-input,
+.btm-input{
+  width: 95%;
+  height: 40px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #D1D5DB;
+}
+
+.btn{
+  width: 70%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-image: linear-gradient(to right, #672280 0%, #8224A3 50%, #A626D3 100%);
+  border: none;
+  border-radius: 0.4rem;
 }
