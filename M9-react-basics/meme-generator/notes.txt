@@ -139,3 +139,70 @@ what the new value of state should be.
 3. When would you want to pass the second option (from answer
    above) to the state setter function?
 Whenever you DO need the previous value to determine the new value
+
+5. Ternary Operator
+
+You can also use ternary operator to specify values of JSX
+
+<div className="state">
+            <h1 className="state--title">Do I feel like going out tonight?</h1>
+            <div className="state--value">
+                <h1>{isGoingOut ? "Yes" : "No"}</h1>
+            </div>
+        </div>
+
+
+
+ const [thingsArray, setThingsArray] = React.useState(["Thing 1", "Thing 2"])
+    
+    function addItem() {
+        
+        setThingsArray(prevArray => prevArray.push(`Thing ${thingsArray.length + 1}`))
+        
+        // We'll work on this next
+        // const newThingText = `Thing ${thingsArray.length + 1}`
+        // thingsArray.push(newThingText)
+        // document.getElementById()
+        // console.log(thingsArray)
+    }
+
+6. Array spread operator!!!!!????
+
+You can use the array spread operator instead of using .push() if youre trying to pass a new value to the previous array.
+
+const [thingsArray, setThingsArray] = React.useState(["Thing 1", "Thing 2"])
+    
+    function addItem() {
+        // We'll work on this next
+        setThingsArray(prevThingsArray => [...prevThingsArray, `Thing ${prevThingsArray.length}`])
+    }
+
+7. Changing elemengs in DOM using ternary conditions
+
+  let starIcon = contact.isFavorite ? "star-filled.png" : "star-empty.png"
+
+  you can use the variable starIcon to provide the end points of the image source
+
+8. Updating state object
+
+To update a certain property, you should use the spread operator to copy everything first and specify the property afterwards that you want to change:
+
+export default function App() {
+    const [contact, setContact] = React.useState({
+        firstName: "John",
+        lastName: "Doe",
+        phone: "+1 (719) 555-1212",
+        email: "itsmyrealname@example.com",
+        isFavorite: false
+    })
+    
+    let starIcon = contact.isFavorite ? "star-filled.png" : "star-empty.png"
+    
+    function toggleFavorite() {
+        setContact(prevContact => {
+            return {
+                ...prevContact,
+                isFavorite: !prevContact.isFavorite
+            }
+        })
+    }

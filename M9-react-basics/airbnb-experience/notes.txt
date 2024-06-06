@@ -115,7 +115,14 @@ export default function Joke(props) {
     )
 }
 
+Ternary operators:
+
+condition === true ? display : else display
+
+condition === true && 
+
 - If props.setup is true then the <h3> element will be displayed. 
+
 
 5. Non-string props
 
