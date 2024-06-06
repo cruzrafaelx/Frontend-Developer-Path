@@ -20,3 +20,122 @@ export default function App() {
 MouseEvent handler reference:
 
 https://react.dev/reference/react-dom/components/common#mouseevent-handler
+
+2. Mapping over array and rendering to DOM
+
+const thingsArray = ["Thing 1", "Thing 2"]
+
+const thingsElements = thingsArray.map(thing => <p>{thing}</p>)
+ 
+    return (
+        <div>
+            <button>Add Item</button>
+            {thingsElements}
+        </div>
+    )
+}
+
+3.  Props vs State:
+
+Props 
+- refers to the properties being passed into a component for it to work correctly.
+- A component cannot modify those props (immutable)
+
+State
+- refers to values that are managed by the component, similar to variables declared inside a function.
+- Any changing values that need to be displayed, state will be used. 
+
+1. How would you describe the concept of "state"?
+A state is a value that can be modified and displayed. 
+
+- A way for React to remember saved values from within a component.
+This is similar to declaring variables from within a component,
+with a few added bonuses (which we'll get to later)
+
+
+2. When would you want to use props instead of state?
+I would use props if the data to be displayed need no changing. 
+
+- Anytime you want to pass data into a component so that
+component can determine what will get displayed on the
+screen.
+
+3. When would you want to use state instead of props?
+I would use state when data change through user input for example.
+
+-Anytime you want a component to maintain some values from
+within the component. (And "remember" those values even
+when React re-renders the component).
+
+
+4. What does "immutable" mean? Are props immutable? Is state immutable?
+Immutable means the data passed can not be changed. Props are immutable. Stats are mutable. 
+
+4. Hooks: useState()
+
+import React, {useState} from "react" 
+
+useState() has 2 values: [saved value, f()]
+
+use array Destructuring to immediately get the desired values from useState()
+
+  const [isImportant, setIsImportant] = React.useState("Yes")
+    
+    
+    function handleClick() {
+        setIsImportant("No")
+    }
+
+Example:
+
+export default function App() {
+    /**
+     * Challenge: Set up state to track our count (initial value is 0)
+     */
+    
+    const [count, setCount] = React.useState(0)
+    
+    count is called a state value
+    setCount is called a state setter
+    
+        
+    function add() {
+        setCount(prevCount => prevCount + 1)
+    }
+ 
+    
+    function subtract() {
+        setCount(function(prevCount){
+            return prevCount - 1
+        })
+    }
+    
+    
+    return (
+        <div className="counter">
+            <button onClick={subtract} className="counter--minus">–</button>
+            <div className="counter--count">
+                <h1>{count}</h1>
+            </div>
+            <button onClick={add} className="counter--plus">+</button>
+        </div>
+    )
+}
+
+1. You have 2 options for what you can pass in to a
+   state setter function (e.g. `setCount`). What are they?
+   
+a. New value of state (setCount(42))
+b. Callback function - whatever the callback function 
+   returns === new value of state
+
+
+2. When would you want to pass the first option (from answer
+   above) to the state setter function?
+Whenever you don't need the previous value of state to determine
+what the new value of state should be.
+
+
+3. When would you want to pass the second option (from answer
+   above) to the state setter function?
+Whenever you DO need the previous value to determine the new value

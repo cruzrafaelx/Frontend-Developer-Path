@@ -1,16 +1,20 @@
 import memesData from "../memesData"
-
+import React from 'react'
 
 export default function Meme(){
+      
+
+      const [image, setImage] = React.useState(" ")
 
       function handleMemeButton(e){
                   
             e.preventDefault()
 
-            const arrayLength = memesData.data.memes.length
-            const randomNum = Math.floor(arrayLength * Math.random())
-      
-            console.log(memesData.data.memes[randomNum].url)
+            const memesArray = memesData.data.memes
+            const randomNum = Math.floor(memesArray.length * Math.random())
+            const url = memesArray[randomNum].url
+            
+            setImage(previousImage => url)
       }
 
 
@@ -46,6 +50,8 @@ export default function Meme(){
                         </div>
                         <button onClick={handleMemeButton} className="btn">Get a new meme</button>
                   </form>
+
+                  <img className="meme-img" src={image}></img>
                   
             </div>
       )
