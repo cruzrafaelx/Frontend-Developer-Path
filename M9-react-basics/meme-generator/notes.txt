@@ -206,3 +206,33 @@ export default function App() {
             }
         })
     }
+
+9. Passing state as props
+
+- It is possible to pass the current state value as a prop to a child component. 
+
+10. Setting state from child component
+
+- You can do this by passing a state setter function as a prop. 
+
+11. Accesibility issues
+
+- If you have images with event listeners, wrap it around a button element so users who use keyboard can also access the event listener with tab focus. 
+
+- if you dont have legible texts  inside a button use an "aria-label" to describe the action to be done by the button. Otherwise you can also use "aria-pressed" to indicate if a button is pressed or not. Use boolean here. 
+
+12. Using dynamic styles in jsx 
+
+ const styles = {
+        backgroundColor: props.darkMode ? "#222222" : "#cccccc"
+    }
+
+     return(
+        <div className="box" key={id} style={styles} ></div>
+    )
+
+    you can use styles as an object in jsx. 
+
+13. local state / derived state
+
+Using state in each instance of a component which is influenced by an incoming prop.
