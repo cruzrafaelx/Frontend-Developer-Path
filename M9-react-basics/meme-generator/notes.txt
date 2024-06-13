@@ -297,9 +297,10 @@ export default function Form() {
 
      function handleChange(event) {
         setFormData(prevFormData => {
+            const{name, value} = event.target
             return {
                 ...prevFormData,
-                [event.target.name]: event.target.value
+                [name]: value
             }
         })
     }
@@ -339,7 +340,7 @@ export default function Form() {
 
 19. Forms: radio
 
-- you should set the "name" to the same value so you can only choose one of the given options. 
+- you should set the same "name" value of every radio input so you can only choose one of the given options. 
 
 
             <fieldset>
@@ -433,6 +434,8 @@ function handleSubmit(e){
 
 23. Controlled Components / inputs
 
+
+
 1. In a vanilla JS app, at what point in the form submission
    process do you gather all the data from the filled-out form?
    
@@ -448,7 +451,7 @@ function handleSubmit(e){
    
    the name attribute in the form elements should match the state property name. 
 
-4. What's different about a saving the data from a checkbox element
+4. What's different about saving the data from a checkbox element
    vs. other form elements?
 
    Compared to other elements, you have a boolean value saved to the state property from the beginning rather than waiting for a string or a number input. 
@@ -460,3 +463,72 @@ function handleSubmit(e){
    a form submit?
    
    You can trigger a form submission by creating a button element inside the form element and declaring an event listener called onSubmit inside the form tag
+
+ 
+24. API calls
+
+- GET the data (fetch)
+- Save the date to state
+
+25. useEffect() - effect hook
+
+By using this Hook, you tell React that your component needs to do something after render. 
+
+React.useEffect(() => )
+
+With useEffect you have 2 parameters:
+1. A callback function
+2. A dependencies array -it is called a dependencies array because useEffect depends on the value of the array whether to rerun the function in it again or not.
+
+ React.useEffect(function() {
+        console.log("Effect ran")
+        // fetch("https://swapi.dev/api/people/1")
+        //     .then(res => res.json())
+        //     .then(data => console.log(data))
+    }, [count]) 
+
+    If the count state changes every time a trigger happens, the useEffect will rerun its function because the dependencies array compares its current value to the previous one. A differing value means function rerun. 
+
+
+
+What is a side effect? 
+- Reaching outside react's ecosystem while trying to set its state.
+
+ React.useEffect(function() {
+        fetch("https://swapi.dev/api/people/1")
+            .then(res => res.json())
+            .then(data => setStarWarsData(data))
+    })
+
+1. What is a "side effect" in React? What are some examples?
+
+A side effect is an action inside the useEffect hook that reaches outside the ecosystem of react. For example fetching a data from the API. 
+
+- Any code that affects an outside system.
+- local storage, API, websockets, two states to keep in sync
+
+2. What is NOT a "side effect" in React? Examples?
+
+Logging something into the console is not a side-effect
+
+- Anything that React is in charge of.
+- Maintaining state, keeping the UI in sync with the data, 
+  render DOM elements
+
+
+3. When does React run your useEffect function? When does it NOT run
+   the effect function?
+   
+React runs your useEffect function after rendering the UI into the DOM. Furthermore, it also reruns the useEffect if you declare a dependencies array as its second parameter and the value of it changes from time to time. 
+
+It does not rerun the effect function if the value of the array dependency is hard coded and does not change.
+
+- As soon as the component loads (first render)
+- On every re-render of the component (assuming no dependencies array)
+- Will NOT run the effect when the values of the dependencies in the
+  array stay the same between renders
+
+
+4. How would you explain what the "dependecies array" is?
+
+The dependencies array is an array to which the effect function depends on as to whether it should rerun its callback function again or not.

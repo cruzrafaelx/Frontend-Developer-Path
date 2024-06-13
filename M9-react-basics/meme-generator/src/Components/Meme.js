@@ -1,8 +1,8 @@
-import memesData from "../memesData"
 import React from 'react'
 
 export default function Meme(){
       
+      //Meme state: controls the texts and the image url
 
       const [meme, setMeme] = React.useState({
 
@@ -11,9 +11,19 @@ export default function Meme(){
             randomImages: "http://i.imgflip.com/1bij.jpg"
       })
 
-      const [allMemeImages, setAllMemeImages] = React.useState(memesData)
+      //memeImages state: holds all the memes data coming from the fetched API using the useEffect() below.
 
-      console.log(meme)
+      const [memeImages, setMemeImages] = React.useState([])
+
+      //Fetches meme data from the API and passes this to the memeImages state setter
+
+      React.useEffect(()=>{
+            console.log("Effect ran")
+            fetch('https://api.imgflip.com/get_memes') //Fetch memes
+            .then(res => res.json()) //parse JSON
+            .then(data => setMemeImages(data.data.memes)) //set state
+      },[0])
+
 
       function handleMemeButton(e){
                   
@@ -21,9 +31,8 @@ export default function Meme(){
             
             //Generate Random Image
 
-            const memesArray = allMemeImages.data.memes
-            const randomNum = Math.floor(memesArray.length * Math.random())
-            const url = memesArray[randomNum].url
+            const randomNum = Math.floor(memeImages.length * Math.random())
+            const url = memeImages[randomNum].url
             
             setMeme(previousImage => {
                   return{
