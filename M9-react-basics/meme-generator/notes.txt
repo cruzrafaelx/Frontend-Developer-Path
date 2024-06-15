@@ -491,7 +491,7 @@ With useEffect you have 2 parameters:
 
 
 
-What is a side effect? 
+26. What is a side effect? 
 - Reaching outside react's ecosystem while trying to set its state.
 
  React.useEffect(function() {
@@ -532,3 +532,46 @@ It does not rerun the effect function if the value of the array dependency is ha
 4. How would you explain what the "dependecies array" is?
 
 The dependencies array is an array to which the effect function depends on as to whether it should rerun its callback function again or not.
+
+
+27. Hiding and showing jsx elements using state:
+
+{show ? <WindowTracker /> : null}
+{show && <WindowTracker />}
+
+show is a state. If it is true, then the component WindowTracker will be rendered, otherwise null. 
+
+28. window.addEventListener("resize")
+
+29. Memory Leak
+
+can be caused by several issues. One example is an unsubscribed event listener or performing  a react state on an unmounted component. When you do not remove an event listener from a child component even if the parent has been unmounted already, this would cause a memory leak. 
+
+30. Cleaning up side effects
+
+Inside the useEffect() you can return a function that cleans up the leak. This can remove an event listener that we no longer need when the component gets unmounted: 
+
+ React.useEffect(() => {
+        function watchWidth() {
+            console.log("Setting up...")
+            setWindowWidth(window.innerWidth)
+        }
+        
+        window.addEventListener("resize", watchWidth)
+        
+        return function() {
+            console.log("Cleaning up...")
+            window.removeEventListener("resize", watchWidth)
+        }
+    }, [])
+
+31. Using async function inside a useEffect()
+
+ React.useEffect(() => {
+        async function getMemes() {
+            const res = await fetch("https://api.imgflip.com/get_memes")
+            const data = await res.json()
+            setAllMemes(data.data.memes)
+        }
+        getMemes()
+    }, [])

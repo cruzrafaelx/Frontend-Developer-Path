@@ -1,0 +1,53 @@
+1. How to open a hamburger menu from the side.
+
+- get id of hamburger
+- connect a click event listener to it, that will add a class to the <nav> 
+
+open.addEventListener('click', () => {
+    nav.classList.add('open-nav');
+})
+
+- the class should have the following properties:
+
+.open-nav {
+    visibility: unset;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+This will undo the above properties declared beforehand:
+
+nav {
+    position: fixed;
+    background: #2C354A;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    width: 80%;
+    visibility: hidden;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: all .3s;
+    text-align: center;
+}
+
+
+2. How to close a side menu:
+
+- get id of exit button
+- connect a click event listener to it that will remove the added class:
+
+exit.addEventListener('click', () => {
+    nav.classList.remove('open-nav');
+})
+
+3. Flex
+
+display: flex;
+
+flexwrap: wrap;
+This makes the flex items wrap onto multiple lines, from top to bottom. Items will overflow into a new line if there is not enough space in the current line.
+
+flex: 0 0 50%;
+is a shorthand for three other properties: flex-grow, flex-shrink, and flex-basis.
+Flex-basis sets the initial main size of the item.  In this case to 50%. 
